@@ -2,6 +2,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
     id(Plugins.versions) version Versions.versionsPlugin
+    id(Plugins.detekt) version Versions.detekt
 }
 
 buildscript {
@@ -23,6 +24,11 @@ allprojects {
         google()
         mavenCentral()
     }
+}
+
+detekt {
+    toolVersion = Versions.detekt
+    config = files("config/detekt/detekt.yml")
 }
 
 tasks {
