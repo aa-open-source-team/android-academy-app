@@ -61,6 +61,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     // auth
     implementation(Libs.playServicesAuth)
 

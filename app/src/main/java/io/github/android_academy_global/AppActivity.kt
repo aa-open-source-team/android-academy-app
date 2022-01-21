@@ -22,7 +22,7 @@ class AppActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting(io.github.anroid_acagemy_global.core.Greeting().greeting())
                 }
             }
         }
@@ -30,8 +30,8 @@ class AppActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting(text: String) {
+    Text(text = text)
 }
 
 @Preview(showBackground = true)
