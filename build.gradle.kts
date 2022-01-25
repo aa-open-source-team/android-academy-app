@@ -26,10 +26,7 @@ allprojects {
     }
 }
 
-detekt {
-    toolVersion = Versions.detekt
-    config = files("config/detekt/detekt.yml")
-}
+apply(from = "${GradleExtraArgs.getGradleSupportFolder(project)}linters.gradle")
 
 tasks {
     register("clean", Delete::class) {

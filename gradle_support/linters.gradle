@@ -1,0 +1,42 @@
+apply plugin: Plugins.detekt
+
+def lintersConfigFolder = GradleExtraArgs.getLintersConfigFolder(rootProject)
+def reportsFolder = "build/reports/"
+
+tasks.named("detekt").configure {
+    reports {
+        xml.required.set(false)
+        html.required.set(false)
+        sarif.required.set(false)
+
+        txt {
+            outputLocation.set(file("${reportsFolder}detekt.txt"))
+            required.set(true) // reports can also be enabled and disabled at the task level as needed
+        }
+    }
+}
+
+detekt {
+    parallel = true
+    failFast = false
+    buildUponDefaultConfig = true
+
+    config = files("${lintersConfigFolder}detekt-config.yml")
+
+    source = files(
+            subprojects
+                    .collect { pr -> pr.projectDir }
+                    .collectMany { dir ->
+                        [
+                                "${dir}/src/main/java",
+                                "${dir}/src/main/kotlin",
+                                "${dir}/src/test/java",
+                                "${dir}/src/androidTest/java"
+                        ]
+                    }
+    )
+}
+
+dependencies {
+    detektPlugins(Plugins.detektFormattingPlugin)
+}
