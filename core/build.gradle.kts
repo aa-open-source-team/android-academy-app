@@ -1,6 +1,6 @@
-import Config.androidCompileSdk
-import Config.androidMinSdk
-import Config.androidTargetSdk
+import ApplicationConfig.androidCompileSdk
+import ApplicationConfig.androidMinSdk
+import ApplicationConfig.androidTargetSdk
 
 plugins {
     kotlin(Plugins.multiplatform)
