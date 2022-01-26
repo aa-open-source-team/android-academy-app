@@ -1,7 +1,7 @@
-import Config.androidBuildTools
-import Config.androidCompileSdk
-import Config.androidMinSdk
-import Config.androidTargetSdk
+import ApplicationConfig.androidBuildTools
+import ApplicationConfig.androidCompileSdk
+import ApplicationConfig.androidMinSdk
+import ApplicationConfig.androidTargetSdk
 
 plugins {
     id(Plugins.appPlugin)
@@ -61,6 +61,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     // auth
     implementation(Libs.playServicesAuth)
 
