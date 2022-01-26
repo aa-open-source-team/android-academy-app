@@ -1,3 +1,5 @@
+package config
+
 object Versions {
     const val kotlin = "1.5.31"
     const val activityCompose = "1.4.0"

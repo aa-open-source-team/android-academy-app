@@ -1,3 +1,6 @@
+import config.Plugins
+import config.GradleExtraArgs
+
 apply plugin: Plugins.detekt
 
 def lintersConfigFolder = GradleExtraArgs.getLintersConfigFolder(rootProject)

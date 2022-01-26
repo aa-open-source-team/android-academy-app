@@ -1,8 +1,8 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
-    id(Plugins.versions) version Versions.versionsPlugin
-    id(Plugins.detekt) version Versions.detekt
+    id(config.Plugins.versions) version config.Versions.versionsPlugin
+    id(config.Plugins.detekt) version config.Versions.detekt
 }
 
 buildscript {
@@ -12,10 +12,10 @@ buildscript {
         maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev/")
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}")
-        classpath("com.android.tools.build:gradle:${Versions.androidToolsPlugin}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${config.Versions.kotlin}")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:${config.Versions.kotlin}")
+        classpath("com.android.tools.build:gradle:${config.Versions.androidToolsPlugin}")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${config.Versions.dagger}")
     }
 }
 
@@ -26,7 +26,7 @@ allprojects {
     }
 }
 
-apply(from = "${GradleExtraArgs.getGradleSupportFolder(project)}linters.gradle")
+apply(from = "${config.GradleExtraArgs.getGradleSupportFolder(project)}linters.gradle")
 
 tasks {
     register("clean", Delete::class) {

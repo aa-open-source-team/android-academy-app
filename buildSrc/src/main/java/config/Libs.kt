@@ -1,3 +1,5 @@
+package config
+
 object Libs {
     // Android libs
     const val androidCore = "androidx.core:core-ktx:${Versions.androidCore}"

@@ -1,3 +1,5 @@
+package config
+
 object Plugins {
     const val androidPlugin = "android"
     const val appPlugin = "com.android.application"

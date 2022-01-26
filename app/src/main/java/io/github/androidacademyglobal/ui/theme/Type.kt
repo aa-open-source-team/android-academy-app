@@ -1,4 +1,4 @@
-package io.github.android_academy_global.ui.theme
+package io.github.androidacademyglobal.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -11,7 +11,7 @@ val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = FONT_SIZE_REGULAR.sp
     )
     /* Other default text styles to override
     button = TextStyle(

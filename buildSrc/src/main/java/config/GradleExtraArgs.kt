@@ -1,3 +1,5 @@
+package config
+
 import org.gradle.api.Project
 import java.io.File
 
@@ -18,24 +20,8 @@ object GradleExtraArgs {
         "${getRootProjectPath(project)}/localization/"
 
     @JvmStatic
-    fun getProguardConfigsFolder(project: Project): String =
-        "${getRootProjectPath(project)}/proguard_configs/"
-
-    @JvmStatic
     fun getBaseKotlinLibrary(project: Project): String =
         "${getGradleSupportFolder(project)}base_kotlin_library.gradle"
-
-    @JvmStatic
-    fun getBaseAndroidResources(project: Project): String =
-        "${getGradleSupportFolder(project)}base_android_resources.gradle"
-
-    @JvmStatic
-    fun getBaseAndroidExecutable(project: Project): String =
-        "${getGradleSupportFolder(project)}base_android_executable.gradle"
-
-    @JvmStatic
-    fun getBaseAndroidResourcesLibrary(project: Project): String =
-        "${getGradleSupportFolder(project)}base_android_resources_library.gradle"
 
     @JvmStatic
     fun getBaseAndroidLibrary(project: Project): String =
@@ -77,21 +63,6 @@ object GradleExtraArgs {
         "${getGradleSupportFolder(project)}dagger2_kapt.gradle"
 
     @JvmStatic
-    fun getRoom(project: Project): String = "${getGradleSupportFolder(project)}room.gradle"
-
-    @JvmStatic
-    fun getViewBinding(project: Project): String =
-        "${getGradleSupportFolder(project)}android_view_binding.gradle"
-
-    @JvmStatic
-    fun getAndroidLibraryViewBindingWithExtensions(project: Project): String =
-        "${getGradleSupportFolder(project)}android_library_view_binding_with_extensions.gradle"
-
-    @JvmStatic
-    fun getAndroidAppViewBindingWithExtensions(project: Project): String =
-        "${getGradleSupportFolder(project)}android_app_view_binding_with_extensions.gradle"
-
-    @JvmStatic
     fun getKotlinxSerilization(project: Project): String =
         "${getGradleSupportFolder(project)}kotlinx_serilization.gradle"
 
@@ -104,10 +75,6 @@ object GradleExtraArgs {
         "${getGradleSupportFolder(project)}project_properties_read.gradle"
 
     @JvmStatic
-    fun getLicenseValidation(project: Project): String =
-        "${getGradleSupportFolder(project)}license_validation.gradle"
-
-    @JvmStatic
     fun getCoverageReportPath(projectBuildDir: File): String =
-        "${projectBuildDir}/reports/jacocoCoverage.xml"
+        "$projectBuildDir/reports/jacocoCoverage.xml"
 }
