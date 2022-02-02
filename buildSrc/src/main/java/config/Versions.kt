@@ -1,3 +1,5 @@
+package config
+
 object Versions {
     const val kotlin = "1.5.31"
     const val activityCompose = "1.4.0"
@@ -11,6 +13,7 @@ object Versions {
     // Plugins
     const val androidToolsPlugin = "7.0.4"
     const val versionsPlugin = "0.41.0"
+    const val detekt = "1.19.0"
 
     // Android libraries
     const val androidCore = "1.7.0"

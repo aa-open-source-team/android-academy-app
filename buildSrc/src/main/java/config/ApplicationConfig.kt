@@ -1,3 +1,5 @@
+package config
+
 object ApplicationConfig {
     // Android config
     const val androidBuildTools = "31.0.0"

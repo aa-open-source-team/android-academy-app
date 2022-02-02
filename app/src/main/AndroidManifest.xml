@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.github.android_academy_global">
+    package="io.github.androidacademyglobal">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAcademyApp">
         <activity
-            android:name=".AppActivity"
+            android:name="io.github.androidacademyglobal.AppActivity"
             android:exported="true"
             android:theme="@style/Theme.AndroidAcademyApp">
             <intent-filter>
