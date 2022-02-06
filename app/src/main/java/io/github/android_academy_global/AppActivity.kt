@@ -10,6 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import io.github.android_academy_global.profile.ProfileScreen
+import io.github.android_academy_global.profile.ProfileScreenState
 import io.github.android_academy_global.ui.theme.AndroidAcademyAppTheme
 
 class AppActivity : ComponentActivity() {
@@ -22,7 +24,14 @@ class AppActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    val profileScreenState = ProfileScreenState(
+                        userId = "temp",
+                        photo = R.drawable.ic_launcher_background,
+                        displayName = "Grinya",
+                        email = "grinya@gmail.com",
+                        telegram = "GMachine"
+                    )
+                    ProfileScreen(profileScreenState)
                 }
             }
         }

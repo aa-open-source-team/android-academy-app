@@ -104,6 +104,7 @@ dependencies {
     implementation(Libs.composeUI)
     implementation(Libs.composeTooling)
     implementation(Libs.glideComposeVersion)
+    implementation(Libs.material3)
 
     // Testing
     testImplementation(Libs.junit)

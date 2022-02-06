@@ -30,6 +30,7 @@ object Versions {
     const val dataStore = "1.0.0"
     const val playServicesAuth = "20.0.1"
     const val serialization = "1.3.2"
+    const val material3 = "1.0.0-alpha04"
 
     // third party libs
     const val glideCompose = "1.4.5"
@@ -79,6 +80,7 @@ object Libs {
     const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val material3 = "androidx.compose.material3:material3:${Versions.material3}"
 
     // third party libs
     const val glideComposeVersion = "com.github.skydoves:landscapist-glide:${Versions.glideCompose}"
