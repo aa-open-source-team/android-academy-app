@@ -9,6 +9,7 @@ object Versions {
     const val hiltNavigationCompose = "1.0.0-rc01"
     const val lifecycle = "2.4.0"
     const val workManager = "2.7.1"
+    const val material3 = "1.0.0-alpha04"
 
     // Plugins
     const val androidToolsPlugin = "7.0.4"

@@ -1,4 +1,4 @@
-package io.github.android_academy_global.components
+package io.github.androidacademyglobal.components
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.*

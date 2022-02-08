@@ -1,9 +1,9 @@
-package io.github.android_academy_global.profile
+package io.github.androidacademyglobal.profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import io.github.android_academy_global.R
-import io.github.android_academy_global.ui.theme.AndroidAcademyAppTheme
+import io.github.androidacademyglobal.R
+import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
 val testProfileScreenState: ProfileScreenState = ProfileScreenState(
     userId = "userId",

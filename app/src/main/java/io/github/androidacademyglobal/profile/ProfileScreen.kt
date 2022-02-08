@@ -1,4 +1,4 @@
-package io.github.android_academy_global.profile
+package io.github.androidacademyglobal.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
@@ -23,8 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import io.github.android_academy_global.R
-import io.github.android_academy_global.components.baselineHeight
+import io.github.androidacademyglobal.R
+import io.github.androidacademyglobal.components.baselineHeight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

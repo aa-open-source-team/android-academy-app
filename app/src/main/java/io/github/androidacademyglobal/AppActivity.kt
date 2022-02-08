@@ -1,4 +1,4 @@
-package io.github.android_academy_global
+package io.github.androidacademyglobal
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import io.github.android_academy_global.ui.theme.AndroidAcademyAppTheme
+import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
 class AppActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
