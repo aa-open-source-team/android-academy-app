@@ -1,14 +1,14 @@
-import Config.androidBuildTools
-import Config.androidCompileSdk
-import Config.androidMinSdk
-import Config.androidTargetSdk
+import config.ApplicationConfig.androidBuildTools
+import config.ApplicationConfig.androidCompileSdk
+import config.ApplicationConfig.androidMinSdk
+import config.ApplicationConfig.androidTargetSdk
 
 plugins {
-    id(Plugins.appPlugin)
-    kotlin(Plugins.androidPlugin)
-    kotlin(Plugins.serializationPlugin)
-    kotlin(Plugins.kapt)
-    id(Plugins.hiltPlugin)
+    id(config.Plugins.appPlugin)
+    kotlin(config.Plugins.androidPlugin)
+    kotlin(config.Plugins.serializationPlugin)
+    kotlin(config.Plugins.kapt)
+    id(config.Plugins.hiltPlugin)
 }
 
 android {
@@ -28,7 +28,6 @@ android {
         }
     }
 
-
     buildTypes {
         getByName("debug") {
             isMinifyEnabled = false
@@ -45,7 +44,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = config.Versions.compose
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -61,53 +60,54 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     // auth
-    implementation(Libs.playServicesAuth)
+    implementation(config.Libs.playServicesAuth)
 
     // Core
-    implementation(Libs.androidCore)
+    implementation(config.Libs.androidCore)
 
     // Serialization
-    implementation(Libs.serialization)
+    implementation(config.Libs.serialization)
 
     // DI
-    implementation(Libs.dagger)
-    kapt(Libs.daggerCompiler)
+    implementation(config.Libs.dagger)
+    kapt(config.Libs.daggerCompiler)
 
-    implementation(Libs.hilt)
-    kapt(Libs.hiltCompiler)
-    implementation(Libs.hiltNavigationCompose)
+    implementation(config.Libs.hilt)
+    kapt(config.Libs.hiltCompiler)
+    implementation(config.Libs.hiltNavigationCompose)
 
     // Concurrency
 
-    implementation(Libs.coroutines)
-    implementation(Libs.coroutinesAndroid)
+    implementation(config.Libs.coroutines)
+    implementation(config.Libs.coroutinesAndroid)
 
     // Logging
-    implementation(Libs.timber)
+    implementation(config.Libs.timber)
 
     // SharedPreference
-    implementation(Libs.dataStore)
+    implementation(config.Libs.dataStore)
 
     // WorkManager
-    implementation(Libs.workManager)
-    androidTestImplementation(Libs.workManagerTest)
+    implementation(config.Libs.workManager)
+    androidTestImplementation(config.Libs.workManagerTest)
 
-    implementation(Libs.lifecycle)
+    implementation(config.Libs.lifecycle)
 
     // UI: compose
-    implementation(Libs.activityCompose)
-    implementation(Libs.vmCompose)
-    implementation(Libs.composeCompiler)
-    implementation(Libs.composeFoundation)
-    implementation(Libs.composeMaterial)
-    implementation(Libs.composeUI)
-    implementation(Libs.composeTooling)
-    implementation(Libs.glideComposeVersion)
-    implementation(Libs.material3)
+    implementation(config.Libs.activityCompose)
+    implementation(config.Libs.vmCompose)
+    implementation(config.Libs.composeCompiler)
+    implementation(config.Libs.composeFoundation)
+    implementation(config.Libs.composeMaterial)
+    implementation(config.Libs.composeUI)
+    implementation(config.Libs.composeTooling)
+    implementation(config.Libs.glideComposeVersion)
 
     // Testing
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.junitExt)
-    androidTestImplementation(Libs.kaspresso)
+    testImplementation(config.Libs.junit)
+    androidTestImplementation(config.Libs.junitExt)
+    androidTestImplementation(config.Libs.kaspresso)
 }

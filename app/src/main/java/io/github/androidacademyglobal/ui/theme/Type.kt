@@ -1,4 +1,4 @@
-package io.github.android_academy_global.ui.theme
+package io.github.androidacademyglobal.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

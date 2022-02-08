@@ -1,8 +1,7 @@
-package io.github.android_academy_global
+package io.github.androidacademyglobal
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
