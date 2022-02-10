@@ -2,7 +2,14 @@ package io.github.androidacademyglobal.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -25,6 +32,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.github.androidacademyglobal.R
 import io.github.androidacademyglobal.components.baselineHeight
+import io.github.androidacademyglobal.ui.theme.MARGIN_LARGE
+import io.github.androidacademyglobal.ui.theme.MARGIN_MEDIUM
+import io.github.androidacademyglobal.ui.theme.MARGIN_SMALL
+import io.github.androidacademyglobal.ui.theme.PROFILE_SCREEN_BOTTOM_MARGIN
+import io.github.androidacademyglobal.ui.theme.ZERO
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,9 +84,9 @@ private fun ProfileHeader(
                 .heightIn(max = containerHeight / 2)
                 .fillMaxWidth()
                 .padding(
-                    start = 16.dp,
+                    start = MARGIN_MEDIUM.dp,
                     top = offsetDp,
-                    end = 16.dp
+                    end = MARGIN_MEDIUM.dp
                 )
                 .clip(CircleShape),
             painter = painterResource(id = it),
@@ -87,7 +99,7 @@ private fun ProfileHeader(
 @Composable
 private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
     Column {
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(MARGIN_SMALL.dp))
 
         ProfileProperty(stringResource(R.string.display_name), userData.displayName)
 
@@ -95,17 +107,23 @@ private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
 
         ProfileProperty(stringResource(R.string.telegram), userData.telegram, isLink = true)
 
-        Spacer(Modifier.height((containerHeight - 320.dp).coerceAtLeast(0.dp)))
+        Spacer(Modifier.height((containerHeight - PROFILE_SCREEN_BOTTOM_MARGIN.dp).coerceAtLeast(ZERO.dp)))
     }
 }
 
 @Composable
 fun ProfileProperty(label: String, value: String, isLink: Boolean = false) {
-    Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp)) {
+    Column(
+        modifier = Modifier.padding(
+            start = MARGIN_MEDIUM.dp,
+            end = MARGIN_MEDIUM.dp,
+            bottom = MARGIN_MEDIUM.dp
+        )
+    ) {
         Divider()
         Text(
             text = label,
-            modifier = Modifier.baselineHeight(24.dp),
+            modifier = Modifier.baselineHeight(MARGIN_LARGE.dp),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -116,7 +134,7 @@ fun ProfileProperty(label: String, value: String, isLink: Boolean = false) {
         }
         Text(
             text = value,
-            modifier = Modifier.baselineHeight(24.dp),
+            modifier = Modifier.baselineHeight(MARGIN_LARGE.dp),
             style = style
         )
     }

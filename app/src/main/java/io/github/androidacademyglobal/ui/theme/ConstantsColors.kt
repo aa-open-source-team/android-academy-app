@@ -1,0 +1,42 @@
+package io.github.androidacademyglobal.ui.theme
+
+const val BLUE_10_HEX = 0xFF000F5E
+const val BLUE_20_HEX = 0xFF001E92
+const val BLUE_30_HEX = 0xFF002ECC
+const val BLUE_40_HEX = 0xFF1546F6
+const val BLUE_80_HEX = 0xFFB8C3FF
+const val BLUE_90_HEX = 0xFFDDE1FF
+
+const val DARK_BLUE_10_HEX = 0xFF00036B
+const val DARK_BLUE_20_HEX = 0xFF000BA6
+const val DARK_BLUE_30_HEX = 0xFF1026D3
+const val DARK_BLUE_40_HEX = 0xFF3648EA
+const val DARK_BLUE_80_HEX = 0xFFBBC2FF
+const val DARK_BLUE_90_HEX = 0xFFDEE0FF
+
+const val YELLOW_10_HEX = 0xFF261900
+const val YELLOW_20_HEX = 0xFF402D00
+const val YELLOW_30_HEX = 0xFF5C4200
+const val YELLOW_40_HEX = 0xFF7A5900
+const val YELLOW_80_HEX = 0xFFFABD1B
+const val YELLOW_90_HEX = 0xFFFFDE9C
+
+const val RED_10_HEX = 0xFF410001
+const val RED_20_HEX = 0xFF680003
+const val RED_30_HEX = 0xFF930006
+const val RED_40_HEX = 0xFFBA1B1B
+const val RED_80_HEX = 0xFFFFB4A9
+const val RED_90_HEX = 0xFFFFDAD4
+
+const val GREY_10_HEX = 0xFF191C1D
+const val GREY_20_HEX = 0xFF2D3132
+const val GREY_30_HEX = 0xFFC4C7C7
+const val GREY_40_HEX = 0xFFE0E3E3
+const val GREY_80_HEX = 0xFFEFF1F1
+const val GREY_90_HEX = 0xFFFBFDFD
+
+const val BLUE_GREY_30_HEX = 0xFF45464F
+const val BLUE_GREY_50_HEX = 0xFF767680
+const val BLUE_GREY_60_HEX = 0xFF90909A
+const val BLUE_GREY_80_HEX = 0xFFC6C5D0
+const val BLUE_GREY_90_HEX = 0xFFE2E1E
