@@ -35,6 +35,8 @@ import io.github.androidacademyglobal.components.baselineHeight
 import io.github.androidacademyglobal.ui.theme.MARGIN_LARGE
 import io.github.androidacademyglobal.ui.theme.MARGIN_MEDIUM
 import io.github.androidacademyglobal.ui.theme.MARGIN_SMALL
+import io.github.androidacademyglobal.ui.theme.PROFILE_BOX_WEIGHT
+import io.github.androidacademyglobal.ui.theme.PROFILE_OFFSET_DIVIDER
 import io.github.androidacademyglobal.ui.theme.PROFILE_SCREEN_BOTTOM_MARGIN
 import io.github.androidacademyglobal.ui.theme.ZERO
 
@@ -50,7 +52,7 @@ fun ProfileScreen(userData: ProfileScreenState) {
             .fillMaxSize()
             .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) {
-        BoxWithConstraints(modifier = Modifier.weight(1f)) {
+        BoxWithConstraints(modifier = Modifier.weight(PROFILE_BOX_WEIGHT)) {
             Surface {
                 Column(
                     modifier = Modifier
@@ -75,13 +77,13 @@ private fun ProfileHeader(
     data: ProfileScreenState,
     containerHeight: Dp
 ) {
-    val offset = (scrollState.value / 2)
+    val offset = (scrollState.value / PROFILE_OFFSET_DIVIDER)
     val offsetDp = with(LocalDensity.current) { offset.toDp() }
 
     data.photo?.let {
         Image(
             modifier = Modifier
-                .heightIn(max = containerHeight / 2)
+                .heightIn(max = containerHeight / PROFILE_OFFSET_DIVIDER)
                 .fillMaxWidth()
                 .padding(
                     start = MARGIN_MEDIUM.dp,

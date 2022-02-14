@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import io.github.androidacademyglobal.ui.theme.ZERO
 
-data class BaselineHeightModifier(
+private data class BaselineHeightModifier(
     val heightFromBaseline: Dp
 ) : LayoutModifier {
 

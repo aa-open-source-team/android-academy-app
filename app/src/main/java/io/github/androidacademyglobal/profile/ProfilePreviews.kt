@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import io.github.androidacademyglobal.R
 import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
-val testProfileScreenState: ProfileScreenState = ProfileScreenState(
+private val testProfileScreenState: ProfileScreenState = ProfileScreenState(
     userId = "userId",
     photo = R.drawable.ic_launcher_background,
     displayName = "Grinya",
@@ -15,48 +15,42 @@ val testProfileScreenState: ProfileScreenState = ProfileScreenState(
 
 @Preview(widthDp = 340, name = "340 width - Me")
 @Composable
-fun ProfilePreview340() {
+fun ProfilePreview340() =
     AndroidAcademyAppTheme {
         ProfileScreen(testProfileScreenState)
     }
-}
 
 @Preview(widthDp = 480, name = "480 width - Me")
 @Composable
-fun ProfilePreview480Me() {
+fun ProfilePreview480Me() =
     AndroidAcademyAppTheme {
         ProfileScreen(testProfileScreenState)
     }
-}
 
 @Preview(widthDp = 480, name = "480 width - Other")
 @Composable
-fun ProfilePreview480Other() {
+fun ProfilePreview480Other() =
     AndroidAcademyAppTheme {
         ProfileScreen(testProfileScreenState)
     }
-}
 
 @Preview(widthDp = 340, name = "340 width - Me - Dark")
 @Composable
-fun ProfilePreview340MeDark() {
+fun ProfilePreview340MeDark() =
     AndroidAcademyAppTheme(darkTheme = true) {
         ProfileScreen(testProfileScreenState)
     }
-}
 
 @Preview(widthDp = 480, name = "480 width - Me - Dark")
 @Composable
-fun ProfilePreview480MeDark() {
+fun ProfilePreview480MeDark() =
     AndroidAcademyAppTheme(darkTheme = true) {
         ProfileScreen(testProfileScreenState)
     }
-}
 
 @Preview(widthDp = 480, name = "480 width - Other - Dark")
 @Composable
-fun ProfilePreview480OtherDark() {
+fun ProfilePreview480OtherDark() =
     AndroidAcademyAppTheme(darkTheme = true) {
         ProfileScreen(testProfileScreenState)
     }
-}

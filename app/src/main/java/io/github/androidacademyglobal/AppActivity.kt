@@ -9,7 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
 class AppActivity : ComponentActivity() {
@@ -22,22 +21,14 @@ class AppActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting(io.github.anroid_acagemy_global.core.Greeting().greeting())
                 }
             }
         }
     }
 
     @Composable
-    fun Greeting(name: String) {
+    private fun Greeting(name: String) {
         Text(text = "Hello $name!")
-    }
-
-    @Preview(showBackground = true)
-    @Composable
-    fun DefaultPreview() {
-        AndroidAcademyAppTheme {
-            Greeting("Android")
-        }
     }
 }
