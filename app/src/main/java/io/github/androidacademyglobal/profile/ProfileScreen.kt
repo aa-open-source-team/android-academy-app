@@ -32,13 +32,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import io.github.androidacademyglobal.R
 import io.github.androidacademyglobal.components.baselineHeight
-import io.github.androidacademyglobal.ui.theme.MARGIN_LARGE
-import io.github.androidacademyglobal.ui.theme.MARGIN_MEDIUM
-import io.github.androidacademyglobal.ui.theme.MARGIN_SMALL
-import io.github.androidacademyglobal.ui.theme.PROFILE_BOX_WEIGHT
-import io.github.androidacademyglobal.ui.theme.PROFILE_OFFSET_DIVIDER
-import io.github.androidacademyglobal.ui.theme.PROFILE_SCREEN_BOTTOM_MARGIN
-import io.github.androidacademyglobal.ui.theme.ZERO
+import io.github.androidacademyglobal.ui.theme.AppConstants
+import io.github.androidacademyglobal.ui.theme.DimensionConstants
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,7 +47,7 @@ fun ProfileScreen(userData: ProfileScreenState) {
             .fillMaxSize()
             .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) {
-        BoxWithConstraints(modifier = Modifier.weight(PROFILE_BOX_WEIGHT)) {
+        BoxWithConstraints(modifier = Modifier.weight(AppConstants.PROFILE_BOX_WEIGHT)) {
             Surface {
                 Column(
                     modifier = Modifier
@@ -77,18 +72,18 @@ private fun ProfileHeader(
     data: ProfileScreenState,
     containerHeight: Dp
 ) {
-    val offset = (scrollState.value / PROFILE_OFFSET_DIVIDER)
+    val offset = (scrollState.value / AppConstants.PROFILE_OFFSET_DIVIDER)
     val offsetDp = with(LocalDensity.current) { offset.toDp() }
 
     data.photo?.let {
         Image(
             modifier = Modifier
-                .heightIn(max = containerHeight / PROFILE_OFFSET_DIVIDER)
+                .heightIn(max = containerHeight / AppConstants.PROFILE_OFFSET_DIVIDER)
                 .fillMaxWidth()
                 .padding(
-                    start = MARGIN_MEDIUM.dp,
+                    start = DimensionConstants.MARGIN_MEDIUM.dp,
                     top = offsetDp,
-                    end = MARGIN_MEDIUM.dp
+                    end = DimensionConstants.MARGIN_MEDIUM.dp
                 )
                 .clip(CircleShape),
             painter = painterResource(id = it),
@@ -101,7 +96,7 @@ private fun ProfileHeader(
 @Composable
 private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
     Column {
-        Spacer(modifier = Modifier.height(MARGIN_SMALL.dp))
+        Spacer(modifier = Modifier.height(DimensionConstants.MARGIN_SMALL.dp))
 
         ProfileProperty(stringResource(R.string.display_name), userData.displayName)
 
@@ -109,7 +104,13 @@ private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
 
         ProfileProperty(stringResource(R.string.telegram), userData.telegram, isLink = true)
 
-        Spacer(Modifier.height((containerHeight - PROFILE_SCREEN_BOTTOM_MARGIN.dp).coerceAtLeast(ZERO.dp)))
+        Spacer(
+            Modifier.height(
+                (containerHeight - DimensionConstants.PROFILE_SCREEN_BOTTOM_MARGIN.dp).coerceAtLeast(
+                    DimensionConstants.ZERO.dp
+                )
+            )
+        )
     }
 }
 
@@ -117,15 +118,15 @@ private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
 fun ProfileProperty(label: String, value: String, isLink: Boolean = false) {
     Column(
         modifier = Modifier.padding(
-            start = MARGIN_MEDIUM.dp,
-            end = MARGIN_MEDIUM.dp,
-            bottom = MARGIN_MEDIUM.dp
+            start = DimensionConstants.MARGIN_MEDIUM.dp,
+            end = DimensionConstants.MARGIN_MEDIUM.dp,
+            bottom = DimensionConstants.MARGIN_MEDIUM.dp
         )
     ) {
         Divider()
         Text(
             text = label,
-            modifier = Modifier.baselineHeight(MARGIN_LARGE.dp),
+            modifier = Modifier.baselineHeight(DimensionConstants.MARGIN_LARGE.dp),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -136,7 +137,7 @@ fun ProfileProperty(label: String, value: String, isLink: Boolean = false) {
         }
         Text(
             text = value,
-            modifier = Modifier.baselineHeight(MARGIN_LARGE.dp),
+            modifier = Modifier.baselineHeight(DimensionConstants.MARGIN_LARGE.dp),
             style = style
         )
     }
