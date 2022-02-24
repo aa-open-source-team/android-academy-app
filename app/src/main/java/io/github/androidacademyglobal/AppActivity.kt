@@ -9,7 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
 class AppActivity : ComponentActivity() {
@@ -27,17 +26,9 @@ class AppActivity : ComponentActivity() {
             }
         }
     }
-}
 
-@Composable
-fun Greeting(text: String) {
-    Text(text = text)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    AndroidAcademyAppTheme {
-        Greeting("Android")
+    @Composable
+    private fun Greeting(name: String) {
+        Text(text = "Hello $name!")
     }
 }

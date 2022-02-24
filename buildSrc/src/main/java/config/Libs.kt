@@ -29,6 +29,7 @@ object Libs {
     const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val composeMaterial3 = "androidx.compose.material3:material3:${Versions.material3}"
 
     // third party libs
     const val glideComposeVersion = "com.github.skydoves:landscapist-glide:${Versions.glideCompose}"
