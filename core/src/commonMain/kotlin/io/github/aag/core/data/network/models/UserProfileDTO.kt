@@ -1,7 +1,7 @@
 package io.github.aag.core.data.network.models
 
 import io.github.aag.core.domain.models.UserProfile
-import io.github.aag.core.domain.models.UserTitle
+import io.github.aag.core.domain.models.UserType
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -9,28 +9,30 @@ import kotlinx.serialization.Serializable
 data class UserProfileDTO(
     @SerialName("username")
     val username: String,
-    @SerialName("mentor")
-    val mentor: Boolean,
-    @SerialName("prof_pic")
-    var profPic: String? = null,
+    @SerialName("avatar_url")
+    val avatarUrl: String? = null,
     @SerialName("first_name")
-    var firstName: String? = null,
+    val firstName: String? = null,
     @SerialName("last_name")
-    var lastName: String? = null,
+    val lastName: String? = null,
     @SerialName("phone_number")
-    var phoneNumber: String? = null,
+    val phoneNumber: String? = null,
     @SerialName("email")
-    var email: String? = null,
-    @SerialName("title")
-    var title: String? = null
+    val email: String? = null,
+    @SerialName("telegram_id")
+    val telegramId: String? = null,
+    @SerialName("user_type")
+    val userType: UserType
 )
 
 fun UserProfileDTO.toUserProfile(): UserProfile =
     UserProfile(
-        profPic = profPic,
+        username = username,
+        avatarUrl = avatarUrl,
         firstName = firstName,
         lastName = lastName,
         phoneNumber = phoneNumber,
         email = email,
-        title = title?.let { userTitle -> UserTitle.valueOf(userTitle) } ?: UserTitle.UNKNOWN
+        telegramId = telegramId,
+        userType = userType
     )

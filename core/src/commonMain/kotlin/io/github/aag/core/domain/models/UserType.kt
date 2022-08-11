@@ -1,8 +1,10 @@
 package io.github.aag.core.domain.models
 
-enum class UserTitle {
+enum class UserType {
     GUEST,
+    LECTURER,
     MENTOR,
+    ORG,
     STUDENT,
     UNKNOWN,
 }

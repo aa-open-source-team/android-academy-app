@@ -1,21 +1,30 @@
 package io.github.aag.core.domain.models
 
 data class UserProfile(
-    val profPic: String? = null,
+    val username: String,
+    val avatarUrl: String? = null,
     val firstName: String? = null,
     val lastName: String? = null,
     val phoneNumber: String? = null,
     val email: String? = null,
-    val title: UserTitle? = null
+    val telegramId: String? = null,
+    val userType: UserType
 ) {
-    class Builder(
-        private var profPic: String? = null,
-        private var firstName: String? = null,
-        private var lastName: String? = null,
-        private var phoneNumber: String? = null,
-        private var email: String? = null,
-        private var title: UserTitle? = null
-    ) {
+    class Builder {
+        private var username: String = ""
+        private var avatarUrl: String? = null
+        private var firstName: String? = null
+        private var lastName: String? = null
+        private var phoneNumber: String? = null
+        private var email: String? = null
+        private var telegramId: String? = null
+        private var userType: UserType = UserType.UNKNOWN
+
+        fun withUsername(value: String): Builder =
+            this.apply {
+                username = value
+            }
+
         fun withFirstName(value: String): Builder =
             this.apply {
                 firstName = value
@@ -26,9 +35,9 @@ data class UserProfile(
                 lastName = value
             }
 
-        fun withProfPic(value: String): Builder =
+        fun withAvatarUrl(value: String): Builder =
             this.apply {
-                profPic = value
+                avatarUrl = value
             }
 
         fun withPhoneNumber(value: String): Builder =
@@ -41,24 +50,30 @@ data class UserProfile(
                 email = value
             }
 
-        fun withTitle(value: UserTitle): Builder =
+        fun withTelegramId(value: String): Builder =
             this.apply {
-                title = value
+                telegramId = value
+            }
+
+        fun withUserTYpe(value: UserType): Builder =
+            this.apply {
+                userType = value
             }
 
         fun build(): UserProfile =
             UserProfile(
-                profPic = profPic,
+                username = username,
+                avatarUrl = avatarUrl,
                 firstName = firstName,
                 lastName = lastName,
                 phoneNumber = phoneNumber,
                 email = email,
-                title = title
+                telegramId = telegramId,
+                userType = userType
             )
     }
 
     companion object {
-        val GUEST = UserProfile(title = UserTitle.GUEST)
-        val UNKNOWN = UserProfile(title = UserTitle.UNKNOWN)
+        val GUEST = UserProfile(username = "", userType = UserType.GUEST)
     }
 }

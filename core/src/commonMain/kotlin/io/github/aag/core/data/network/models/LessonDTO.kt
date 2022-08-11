@@ -1,14 +1,11 @@
 package io.github.aag.core.data.network.models
 
-import io.github.aag.core.domain.models.City
-import io.github.aag.core.domain.models.Course
-import io.github.aag.core.domain.models.CourseLanguage
-import io.github.aag.core.domain.models.CourseMode
+import io.github.aag.core.domain.models.Lesson
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CourseDTO(
+data class LessonDTO(
     @SerialName("id")
     val id: Long,
     @SerialName("title")
@@ -19,37 +16,37 @@ data class CourseDTO(
     val fullDescription: String? = null,
     @SerialName("img_url")
     val coverImgUrl: String? = null,
+    @SerialName("youtube_url")
+    val youtubeUrl: String? = null,
+    @SerialName("github_repo_url")
+    val githubRepoUrl: String? = null,
+    @SerialName("telegram_channel")
+    val telegramChannel: String? = null,
+    @SerialName("addons")
+    val additionalMaterials: List<AdditionalMaterialDTO>,
     @SerialName("tags")
-    val tags: List<String>, // a.k.a. tech stack
-    @SerialName("language")
-    val language: CourseLanguage,
+    val tags: List<String>,
     @SerialName("start_timestamp_sec")
     val startTimestampSec: Long,
     @SerialName("end_timestamp_sec")
     val endTimestampSec: Long,
-    @SerialName("host_cities")
-    val hostCities: List<City>,
-    @SerialName("mode")
-    val mode: CourseMode,
-    @SerialName("lessons")
-    val lessonIds: List<Int>,
-    @SerialName("subscribed")
-    val isSubscribed: Boolean = false
+    @SerialName("favourite")
+    val isFavourite: Boolean
 )
 
-fun CourseDTO.toCourse(): Course =
-    Course(
+fun LessonDTO.toLecture(): Lesson =
+    Lesson(
         id = id,
         title = title,
         shortDescription = shortDescription,
         fullDescription = fullDescription,
+        youtubeUrl = youtubeUrl,
+        githubRepoUrl = githubRepoUrl,
+        telegramChannel = telegramChannel,
+        additionalMaterials = additionalMaterials.map(AdditionalMaterialDTO::toAdditionalMaterial),
         coverImgUrl = coverImgUrl,
         tags = tags,
-        language = language,
         startTimestampSec = startTimestampSec,
         endTimestampSec = endTimestampSec,
-        hostCities = hostCities,
-        mode = mode,
-        lessonIds = lessonIds,
-        isSubscribed = isSubscribed
+        isFavourite = isFavourite
     )

@@ -1,11 +1,11 @@
 package io.github.aag.core.domain.models
 
 data class Video(
-    val id: Long = 0,
-    val name: String = "",
-    val date: String = "",
-    val picture: String = "",
-    val city: City = City.UNKNOWN,
-    val level: CourseLevel = CourseLevel.UNKNOWN,
-    val year: CourseYear = CourseYear("")
+    val id: Long,
+    val name: String?,
+    val date: String?,
+    val picture: String?,
+    val city: City,
+    val level: CourseLevel,
+    val year: CourseYear
 )

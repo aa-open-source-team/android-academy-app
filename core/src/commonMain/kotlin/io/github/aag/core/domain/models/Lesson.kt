@@ -1,14 +1,17 @@
 package io.github.aag.core.domain.models
 
 data class Lesson(
-    val id: Long? = null,
+    val id: Long,
     val title: String,
-    val youtubeUrl: String = "",
-    val githubRepoUrl: String = "",
-    val telegramChannel: String = "",
+    val shortDescription: String?,
+    val fullDescription: String?,
+    val coverImgUrl: String?,
+    val youtubeUrl: String?,
+    val githubRepoUrl: String?,
+    val telegramChannel: String?,
     val additionalMaterials: List<AdditionalMaterial>,
-    val imgUrl: String? = null,
     val tags: List<String>,
-    val courseId: Long,
-    val startTimestamp: Long
+    val startTimestampSec: Long,
+    val endTimestampSec: Long,
+    val isFavourite: Boolean
 )
