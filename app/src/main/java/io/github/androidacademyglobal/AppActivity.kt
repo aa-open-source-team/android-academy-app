@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import io.github.aag.core.domain.models.UserProfile.Companion.GUEST
 import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
 class AppActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class AppActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting(io.github.anroid_acagemy_global.core.Greeting().greeting())
+                    Greeting(requireNotNull(GUEST.title).name)
                 }
             }
         }
