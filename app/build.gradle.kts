@@ -6,7 +6,6 @@ import config.ApplicationConfig.androidTargetSdk
 plugins {
     id(config.Plugins.appPlugin)
     kotlin(config.Plugins.androidPlugin)
-    kotlin(config.Plugins.serializationPlugin)
     kotlin(config.Plugins.kapt)
     id(config.Plugins.hiltPlugin)
 }
@@ -68,9 +67,6 @@ dependencies {
     // Core
     implementation(config.Libs.androidCore)
 
-    // Serialization
-    implementation(config.Libs.serialization)
-
     // DI
     implementation(config.Libs.dagger)
     kapt(config.Libs.daggerCompiler)
@@ -78,11 +74,6 @@ dependencies {
     implementation(config.Libs.hilt)
     kapt(config.Libs.hiltCompiler)
     implementation(config.Libs.hiltNavigationCompose)
-
-    // Concurrency
-
-    implementation(config.Libs.coroutines)
-    implementation(config.Libs.coroutinesAndroid)
 
     // Logging
     implementation(config.Libs.timber)
