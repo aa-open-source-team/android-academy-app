@@ -22,7 +22,7 @@ class AppActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting(requireNotNull(GUEST.title).name)
+                    Greeting(requireNotNull(GUEST.userType).name)
                 }
             }
         }
