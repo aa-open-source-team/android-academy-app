@@ -1,15 +1,13 @@
 package io.github.aag.core.domain.repositories
 
-import io.github.aag.core.domain.models.News
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
+import io.github.aag.core.domain.OperationResult
 
 interface NewsRepository {
-    val newsList: StateFlow<List<News>>
+    suspend fun updateLiked(id: Long, isLiked: Boolean): Boolean
 
-    fun updateLiked(id: Long, isLiked: Boolean): Boolean
+    suspend fun <T> getIsLikedState(id: Long): OperationResult<T>
 
-    fun getIsLikedState(id: Long): Boolean
+    suspend fun <T> getLikesCountForId(chatId: Long): OperationResult<T>
 
-    fun getLikesCountForId(chatId: Long): Flow<Int>
+    suspend fun <T> getNewsList(): OperationResult<T>
 }

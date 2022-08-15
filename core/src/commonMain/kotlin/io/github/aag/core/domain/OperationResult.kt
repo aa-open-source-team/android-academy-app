@@ -1,11 +1,11 @@
 package io.github.aag.core.domain
 
 
-sealed class OperationResult<out S : Any?, out E : Any?> {
+sealed class OperationResult<out T> {
 
-    data class Success<out S : Any?>(val data: S) : OperationResult<S, Nothing>()
+    data class Success<T>(val data: T) : OperationResult<T>()
 
-    data class Error<out E : Any?>(val data: E) : OperationResult<Nothing, E>()
+    data class Error<T>(val throwable: T) : OperationResult<T>()
 
-    class Loading : OperationResult<Nothing, Nothing>()
+    class Loading : OperationResult<Nothing>()
 }

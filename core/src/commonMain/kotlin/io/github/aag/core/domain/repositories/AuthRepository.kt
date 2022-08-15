@@ -1,21 +1,17 @@
 package io.github.aag.core.domain.repositories
 
 import io.github.aag.core.domain.OperationResult
-import io.github.aag.core.domain.models.UserProfile
-import kotlinx.coroutines.flow.Flow
+import io.github.aag.core.domain.models.UserType
 
 interface AuthRepository {
-    // todo - maybe move to ProfileRepository
-    val userProfile: Flow<OperationResult<UserProfile, Throwable?>>
+    suspend fun <T> login(username: String, password: String): OperationResult<T>
 
-    suspend fun login(username: String, password: String): OperationResult<Unit, Throwable?>
-
-    suspend fun register(
+    suspend fun <T> register(
         username: String,
         password: String,
         name: String,
-        isMentor: Boolean
-    ): OperationResult<Unit, Throwable?>
+        userType: UserType
+    ): OperationResult<T>
 
-    suspend fun enterGuestMode()
+    suspend fun enterGuestMode(): Boolean
 }

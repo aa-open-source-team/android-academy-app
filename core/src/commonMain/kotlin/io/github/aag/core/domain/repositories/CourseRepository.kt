@@ -4,9 +4,9 @@ import io.github.aag.core.domain.OperationResult
 import io.github.aag.core.domain.models.Course
 
 interface CourseRepository {
-    suspend fun getAllCourses(): OperationResult<List<Course>, String?>
+    suspend fun <T> getAllCourses(): OperationResult<T>
 
-    suspend fun getFavouriteCourses(username: String): OperationResult<List<Course>, String?>
+    suspend fun <T> getFavouriteCourses(username: String): OperationResult<T>
 
-    suspend fun updateCourse(course: Course): OperationResult<Unit, String?>
+    suspend fun <T> updateCourse(course: Course): OperationResult<T>
 }

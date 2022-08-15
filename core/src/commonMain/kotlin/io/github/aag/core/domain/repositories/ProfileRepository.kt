@@ -1,7 +1,10 @@
 package io.github.aag.core.domain.repositories
 
+import io.github.aag.core.domain.OperationResult
 import io.github.aag.core.domain.models.UserProfile
 
 interface ProfileRepository {
-    suspend fun saveProfileData(profile: UserProfile)
+    fun <T> getUserProfile(): OperationResult<T>
+
+    suspend fun <T> saveProfileData(profile: UserProfile): OperationResult<T>
 }
