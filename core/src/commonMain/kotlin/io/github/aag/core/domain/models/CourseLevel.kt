@@ -1,7 +1,7 @@
 package io.github.aag.core.domain.models
 
-enum class CourseLevel(override val stringName: String) : Stringified {
-    FUNDAMENTALS("FUNDAMENTALS"),
-    ADVANCED("ADVANCED"),
+enum class CourseLevel(override val itemName: String) : FilterItem {
+    FUNDAMENTALS("Fundamentals"),
+    ADVANCED("Advanced"),
     UNKNOWN("UNKNOWN");
 }
