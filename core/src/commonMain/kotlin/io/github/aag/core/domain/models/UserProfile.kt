@@ -1,24 +1,24 @@
 package io.github.aag.core.domain.models
 
-data class UserProfile(
+class UserProfile(
     val username: String,
+    val userType: UserType,
     val avatarUrl: String? = null,
     val firstName: String? = null,
     val lastName: String? = null,
     val phoneNumber: String? = null,
     val email: String? = null,
-    val telegramId: String? = null,
-    val userType: UserType
+    val telegramId: String? = null
 ) {
     class Builder {
         private var username: String = ""
+        private var userType: UserType = UserType.UNKNOWN
         private var avatarUrl: String? = null
         private var firstName: String? = null
         private var lastName: String? = null
         private var phoneNumber: String? = null
         private var email: String? = null
         private var telegramId: String? = null
-        private var userType: UserType = UserType.UNKNOWN
 
         fun withUsername(value: String): Builder =
             this.apply {
@@ -63,13 +63,13 @@ data class UserProfile(
         fun build(): UserProfile =
             UserProfile(
                 username = username,
+                userType = userType,
                 avatarUrl = avatarUrl,
                 firstName = firstName,
                 lastName = lastName,
                 phoneNumber = phoneNumber,
                 email = email,
-                telegramId = telegramId,
-                userType = userType
+                telegramId = telegramId
             )
     }
 

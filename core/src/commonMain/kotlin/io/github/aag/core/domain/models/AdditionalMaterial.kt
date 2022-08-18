@@ -1,6 +1,6 @@
 package io.github.aag.core.domain.models
 
-data class AdditionalMaterial(
+class AdditionalMaterial(
     val topicName: String,
     val url: String
 )

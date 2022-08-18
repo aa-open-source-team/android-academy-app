@@ -28,11 +28,11 @@ data class UserProfileDTO(
 fun UserProfileDTO.toUserProfile(): UserProfile =
     UserProfile(
         username = username,
+        userType = userType,
         avatarUrl = avatarUrl,
         firstName = firstName,
         lastName = lastName,
         phoneNumber = phoneNumber,
         email = email,
-        telegramId = telegramId,
-        userType = userType
+        telegramId = telegramId
     )

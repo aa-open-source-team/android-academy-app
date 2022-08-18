@@ -41,9 +41,6 @@ fun CourseDTO.toCourse(): Course =
     Course(
         id = id,
         title = title,
-        shortDescription = shortDescription,
-        fullDescription = fullDescription,
-        coverImgUrl = coverImgUrl,
         tags = tags,
         language = language,
         startTimestampSec = startTimestampSec,
@@ -51,5 +48,8 @@ fun CourseDTO.toCourse(): Course =
         hostCities = hostCities,
         mode = mode,
         lessonIds = lessonIds,
-        isSubscribed = isSubscribed
+        isSubscribed = isSubscribed,
+        shortDescription = shortDescription,
+        fullDescription = fullDescription,
+        coverImgUrl = coverImgUrl
     )

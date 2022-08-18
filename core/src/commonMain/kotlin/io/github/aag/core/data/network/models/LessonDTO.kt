@@ -38,15 +38,15 @@ fun LessonDTO.toLecture(): Lesson =
     Lesson(
         id = id,
         title = title,
-        shortDescription = shortDescription,
-        fullDescription = fullDescription,
-        youtubeUrl = youtubeUrl,
-        githubRepoUrl = githubRepoUrl,
-        telegramChannel = telegramChannel,
         additionalMaterials = additionalMaterials.map(AdditionalMaterialDTO::toAdditionalMaterial),
-        coverImgUrl = coverImgUrl,
         tags = tags,
         startTimestampSec = startTimestampSec,
         endTimestampSec = endTimestampSec,
-        isFavourite = isFavourite
+        isFavourite = isFavourite,
+        shortDescription = shortDescription,
+        fullDescription = fullDescription,
+        coverImgUrl = coverImgUrl,
+        youtubeUrl = youtubeUrl,
+        githubRepoUrl = githubRepoUrl,
+        telegramChannel = telegramChannel
     )
