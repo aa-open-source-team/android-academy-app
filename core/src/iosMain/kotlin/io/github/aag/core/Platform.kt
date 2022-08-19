@@ -1,4 +1,4 @@
-package io.github.anroid_acagemy_global.core
+package io.github.aag.core
 
 import platform.UIKit.UIDevice
 

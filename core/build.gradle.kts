@@ -1,5 +1,6 @@
 plugins {
     kotlin(config.Plugins.multiplatform)
+    kotlin(config.Plugins.serializationPlugin)
     id(config.Plugins.library)
 }
 
@@ -13,6 +14,23 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = config.Modules.CORE
+        }
+    }
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                // Serialization
+                implementation(config.Libs.serialization)
+
+                // Concurrency
+                implementation(config.Libs.coroutines)
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation(config.Libs.coroutinesAndroid)
+            }
         }
     }
 }
