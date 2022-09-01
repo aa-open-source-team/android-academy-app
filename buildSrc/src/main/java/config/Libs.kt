@@ -9,7 +9,7 @@ object Libs {
     const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     const val composeFoundation = "androidx.compose.foundation:foundation:${Versions.compose}"
     const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-    const val vmCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.vmCompose}"
+    const val vmCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycle}"
 
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
