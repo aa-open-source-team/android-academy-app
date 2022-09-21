@@ -4,10 +4,9 @@ import config.ApplicationConfig.androidMinSdk
 import config.ApplicationConfig.androidTargetSdk
 
 plugins {
-    id(config.Plugins.appPlugin)
-    kotlin(config.Plugins.androidPlugin)
-    kotlin(config.Plugins.kapt)
-    id(config.Plugins.hiltPlugin)
+    id("com.android.application")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -43,8 +42,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = config.Versions.compose
-        kotlinCompilerVersion = config.Versions.compose
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
+        kotlinCompilerVersion = libs.versions.compose.get()
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -63,44 +62,38 @@ dependencies {
     implementation(project(":core"))
 
     // auth
-    implementation(config.Libs.playServicesAuth)
+    implementation(libs.playServicesAuth)
 
     // Core
-    implementation(config.Libs.androidCore)
+    implementation(libs.androidCore)
 
     // DI
-    implementation(config.Libs.dagger)
-    kapt(config.Libs.daggerCompiler)
-
-    implementation(config.Libs.hilt)
-    kapt(config.Libs.hiltCompiler)
-    implementation(config.Libs.hiltNavigationCompose)
 
     // Logging
-    implementation(config.Libs.timber)
+    implementation(libs.timber)
 
     // SharedPreference
-    implementation(config.Libs.dataStore)
+    implementation(libs.dataStore)
 
     // WorkManager
-    implementation(config.Libs.workManager)
-    androidTestImplementation(config.Libs.workManagerTest)
+    implementation(libs.workManager)
+    androidTestImplementation(libs.workManagerTest)
 
-    implementation(config.Libs.lifecycle)
+    implementation(libs.lifecycle)
 
     // UI: compose
-    implementation(config.Libs.activityCompose)
-    implementation(config.Libs.vmCompose)
-    implementation(config.Libs.composeCompiler)
-    implementation(config.Libs.composeFoundation)
-    implementation(config.Libs.composeMaterial)
-    implementation(config.Libs.composeUI)
-    implementation(config.Libs.composeTooling)
-    implementation(config.Libs.glideComposeVersion)
-    implementation(config.Libs.composeMaterial3)
+    implementation(libs.activityCompose)
+    implementation(libs.vmCompose)
+    implementation(libs.composeCompiler)
+    implementation(libs.composeFoundation)
+    implementation(libs.composeMaterial)
+    implementation(libs.composeUI)
+    implementation(libs.composeTooling)
+    implementation(libs.glideComposeVersion)
+    implementation(libs.composeMaterial3)
 
     // Testing
-    testImplementation(config.Libs.junit)
-    androidTestImplementation(config.Libs.junitExt)
-    androidTestImplementation(config.Libs.kaspresso)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junitExt)
+    androidTestImplementation(libs.kaspresso)
 }

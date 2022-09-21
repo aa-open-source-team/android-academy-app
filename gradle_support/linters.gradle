@@ -1,7 +1,6 @@
-import config.Plugins
 import config.GradleExtraArgs
 
-apply plugin: Plugins.detekt
+apply plugin: "io.gitlab.arturbosch.detekt"
 
 def lintersConfigFolder = GradleExtraArgs.getLintersConfigFolder(rootProject)
 def reportsFolder = "build/reports/"
@@ -41,5 +40,5 @@ detekt {
 }
 
 dependencies {
-    detektPlugins(Plugins.detektFormattingPlugin)
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
 }

@@ -1,7 +1,7 @@
 plugins {
-    kotlin(config.Plugins.multiplatform)
-    kotlin(config.Plugins.serializationPlugin)
-    id(config.Plugins.library)
+    kotlin("multiplatform")
+    kotlin("plugin.serialization")
+    id("com.android.library")
 }
 
 kotlin {
@@ -21,15 +21,15 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // Serialization
-                implementation(config.Libs.serialization)
+                implementation(libs.serialization)
 
                 // Concurrency
-                implementation(config.Libs.coroutines)
+                implementation(libs.coroutines)
             }
         }
         val androidMain by getting {
             dependencies {
-                implementation(config.Libs.coroutinesAndroid)
+                implementation(libs.coroutinesAndroid)
             }
         }
     }
