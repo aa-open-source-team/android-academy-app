@@ -10,7 +10,9 @@ hiltNavigationCompose = "1.0.0"
 
 # Plugins
 androidToolsPlugin = "7.3.0"
+versionUpdater = "0.42.0"
 detekt = "1.21.0"
+android = "7.3.0"
 
 # Android libraries
 lifecycle = "2.5.1"
@@ -63,6 +65,15 @@ junit = { module = "junit:junit", version.ref = "junit" }
 junitExt = { module = "androidx.test.ext:junit", version.ref = "junitExt" }
 kaspresso = { module = "com.kaspersky.android-components:kaspresso-compose-support", version.ref = "kaspresso" }
 workManagerTest = { module = "androidx.work:work-testing", version.ref = "workManager" }
+
+[plugins]
+androidPlugin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kaptPlugin = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+appPlugin = { id = "com.android.application", version.ref = "android" }
+detektPlugin = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+multiplatformPlugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+serializationPlugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+libraryPlugin = { id = "com.android.library", version.ref = "android" }
 
 # Google
 [bundles]

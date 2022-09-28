@@ -4,9 +4,9 @@ import config.ApplicationConfig.androidMinSdk
 import config.ApplicationConfig.androidTargetSdk
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
+    alias(libs.plugins.appPlugin)
+    alias(libs.plugins.androidPlugin)
+    alias(libs.plugins.kaptPlugin)
 }
 
 android {
