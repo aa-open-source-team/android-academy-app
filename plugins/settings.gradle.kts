@@ -13,6 +13,11 @@ dependencyResolutionManagement {
                 "io.gitlab.arturbosch.detekt",
                 "detekt-gradle-plugin"
             ).versionRef("detekt")
+            library(
+                "detektFormatting",
+                "io.gitlab.arturbosch.detekt",
+                "detekt-formatting"
+            ).versionRef("detekt")
         }
     }
 }

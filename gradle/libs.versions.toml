@@ -58,7 +58,6 @@ composeMaterial3 = { module = "androidx.compose.material3:material3", version.re
 # third party libs
 glideComposeVersion = { module = "com.github.skydoves:landscapist-glide", version.ref = "glideCompose" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
 # testing
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -70,7 +69,6 @@ workManagerTest = { module = "androidx.work:work-testing", version.ref = "workMa
 androidPlugin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kaptPlugin = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 appPlugin = { id = "com.android.application", version.ref = "android" }
-detektPlugin = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 multiplatformPlugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 serializationPlugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 libraryPlugin = { id = "com.android.library", version.ref = "android" }
