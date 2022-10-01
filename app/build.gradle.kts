@@ -1,7 +1,7 @@
-import config.ApplicationConfig.androidBuildTools
-import config.ApplicationConfig.androidCompileSdk
-import config.ApplicationConfig.androidMinSdk
-import config.ApplicationConfig.androidTargetSdk
+import io.github.androidacademyglobal.config.ApplicationConfig.androidBuildTools
+import io.github.androidacademyglobal.config.ApplicationConfig.androidCompileSdk
+import io.github.androidacademyglobal.config.ApplicationConfig.androidMinSdk
+import io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
 
 plugins {
     alias(libs.plugins.appPlugin)

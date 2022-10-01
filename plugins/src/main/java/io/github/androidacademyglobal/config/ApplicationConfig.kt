@@ -1,4 +1,4 @@
-package config
+package io.github.androidacademyglobal.config
 
 object ApplicationConfig {
     // Android config
