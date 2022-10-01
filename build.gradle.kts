@@ -1,5 +1,6 @@
 plugins {
     id("dependencies-updater")
+    id("detekt-all")
     alias(libs.plugins.appPlugin) apply false
     alias(libs.plugins.androidPlugin) apply false
     alias(libs.plugins.libraryPlugin) apply false
@@ -15,5 +16,3 @@ allprojects {
         mavenCentral()
     }
 }
-
-apply(from = "${config.GradleExtraArgs.getGradleSupportFolder(project)}linters.gradle")

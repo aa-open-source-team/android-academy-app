@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
     implementation(libs.versionUpdater)
+    implementation(libs.detektPlugin)
 }
 
 gradlePlugin {
@@ -22,6 +23,10 @@ gradlePlugin {
         register("dependencies-updater") {
             id = "dependencies-updater"
             implementationClass = "io.github.androidacademyglobal.plugins.DependenciesUpdaterPlugin"
+        }
+        register("detekt-all") {
+            id = "detekt-all"
+            implementationClass = "io.github.androidacademyglobal.plugins.DetektAllPlugin"
         }
     }
 }

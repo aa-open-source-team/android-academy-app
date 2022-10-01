@@ -8,6 +8,11 @@ dependencyResolutionManagement {
                 "com.github.ben-manes",
                 "gradle-versions-plugin"
             ).versionRef("versionUpdater")
+            library(
+                "detektPlugin",
+                "io.gitlab.arturbosch.detekt",
+                "detekt-gradle-plugin"
+            ).versionRef("detekt")
         }
     }
 }

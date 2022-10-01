@@ -6,14 +6,16 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.named
-import java.util.*
+import java.util.Locale
 
 class DependenciesUpdaterPlugin : Plugin<Project> {
-    override fun apply(target: Project) = target.run {
-        if (this == rootProject) {
-            configureDependencyUpdates()
-        } else {
-            logger.warn("You should apply this plugin only to root project")
+    override fun apply(target: Project) {
+        target.run {
+            if (this == rootProject) {
+                configureDependencyUpdates()
+            } else {
+                logger.warn("You should apply this plugin only to root project")
+            }
         }
     }
 
