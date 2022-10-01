@@ -32,10 +32,6 @@ class DetektAllPlugin : Plugin<Project> {
             parallel = true
             allRules = false
             buildUponDefaultConfig = true
-
-            configure<Detekt> {
-
-            }
         }
         project.extensions.configure<DetektExtension> {
             config =
