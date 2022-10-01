@@ -1,7 +1,7 @@
 plugins {
-    kotlin(config.Plugins.multiplatform)
-    kotlin(config.Plugins.serializationPlugin)
-    id(config.Plugins.library)
+    alias(libs.plugins.multiplatformPlugin)
+    alias(libs.plugins.serializationPlugin)
+    alias(libs.plugins.libraryPlugin)
 }
 
 kotlin {
@@ -13,7 +13,7 @@ kotlin {
         iosSimulatorArm64() // sure all ios dependencies support this target
     ).forEach {
         it.binaries.framework {
-            baseName = config.Modules.CORE
+            baseName = "core"
         }
     }
 
@@ -21,25 +21,25 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // Serialization
-                implementation(config.Libs.serialization)
+                implementation(libs.serialization)
 
                 // Concurrency
-                implementation(config.Libs.coroutines)
+                implementation(libs.coroutines)
             }
         }
         val androidMain by getting {
             dependencies {
-                implementation(config.Libs.coroutinesAndroid)
+                implementation(libs.coroutinesAndroid)
             }
         }
     }
 }
 
 android {
-    compileSdk = config.ApplicationConfig.androidCompileSdk
-    sourceSets[config.Constants.MAIN].manifest.srcFile(config.Constants.MANIFEST_PATH)
+    compileSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidCompileSdk
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = config.ApplicationConfig.androidMinSdk
-        targetSdk = config.ApplicationConfig.androidTargetSdk
+        minSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidMinSdk
+        targetSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
     }
 }
