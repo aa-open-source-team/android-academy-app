@@ -56,6 +56,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    namespace = "io.github.androidacademyglobal"
 }
 
 dependencies {
@@ -68,6 +69,9 @@ dependencies {
     implementation(libs.androidCore)
 
     // DI
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
 
     // Logging
     implementation(libs.timber)
@@ -84,6 +88,7 @@ dependencies {
     // UI: compose
     implementation(libs.activityCompose)
     implementation(libs.vmCompose)
+    implementation(libs.lifecycleCompose)
     implementation(libs.composeCompiler)
     implementation(libs.composeFoundation)
     implementation(libs.composeMaterial)

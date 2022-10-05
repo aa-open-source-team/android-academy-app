@@ -25,6 +25,8 @@ kotlin {
 
                 // Concurrency
                 implementation(libs.coroutines)
+
+                api(libs.koin.core)
             }
         }
         val androidMain by getting {
@@ -42,4 +44,5 @@ android {
         minSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidMinSdk
         targetSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
     }
+    namespace = "io.github.aag.core"
 }

@@ -2,6 +2,8 @@
 # Kotlin
 kotlin = "1.7.0"
 
+koin = "3.2.1"
+
 # Compose
 activityCompose = "1.5.1"
 compose = "1.2.0"
@@ -15,7 +17,7 @@ detekt = "1.21.0"
 android = "7.3.0"
 
 # Android libraries
-lifecycle = "2.5.1"
+lifecycle = "2.6.0-alpha02"
 workManager = "2.7.1"
 material3 = "1.0.0-alpha16"
 androidCore = "1.8.0"
@@ -47,6 +49,7 @@ vmCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version
 
 dataStore = { module = "androidx.datastore:datastore-preferences", version.ref = "dataStore" }
 lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycleCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
 playServicesAuth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 workManager = { module = "androidx.work:work-runtime-ktx", version.ref = "workManager" }
@@ -54,6 +57,10 @@ workManager = { module = "androidx.work:work-runtime-ktx", version.ref = "workMa
 coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 composeMaterial3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 
 # third party libs
 glideComposeVersion = { module = "com.github.skydoves:landscapist-glide", version.ref = "glideCompose" }
