@@ -31,8 +31,6 @@ data class CourseDTO(
     val hostCities: List<City>,
     @SerialName("mode")
     val mode: CourseMode,
-    @SerialName("lessons")
-    val lessonIds: List<Int>,
     @SerialName("subscribed")
     val isSubscribed: Boolean = false
 )
@@ -47,7 +45,6 @@ fun CourseDTO.toCourse(): Course =
         endTimestampSec = endTimestampSec,
         hostCities = hostCities,
         mode = mode,
-        lessonIds = lessonIds,
         isSubscribed = isSubscribed,
         shortDescription = shortDescription,
         fullDescription = fullDescription,
