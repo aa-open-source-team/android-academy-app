@@ -1,6 +1,6 @@
 package io.github.aag.core.data.network.models
 
-import io.github.aag.core.domain.models.UserType
+import io.github.aag.core.domain.models.UserRole
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -12,6 +12,6 @@ data class RegisterRequestDTO(
     val pwd: String,
     @SerialName("name")
     val name: String,
-    @SerialName("user_type")
-    val userType: UserType
+    @SerialName("user_role")
+    val userRole: UserRole
 )

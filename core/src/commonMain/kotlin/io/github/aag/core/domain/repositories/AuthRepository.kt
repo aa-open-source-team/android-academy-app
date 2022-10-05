@@ -1,7 +1,7 @@
 package io.github.aag.core.domain.repositories
 
 import io.github.aag.core.domain.OperationResult
-import io.github.aag.core.domain.models.UserType
+import io.github.aag.core.domain.models.UserRole
 
 interface AuthRepository {
     suspend fun <T> login(username: String, password: String): OperationResult<T>
@@ -10,7 +10,7 @@ interface AuthRepository {
         username: String,
         password: String,
         name: String,
-        userType: UserType
+        userRole: UserRole
     ): OperationResult<T>
 
     suspend fun enterGuestMode(): Boolean

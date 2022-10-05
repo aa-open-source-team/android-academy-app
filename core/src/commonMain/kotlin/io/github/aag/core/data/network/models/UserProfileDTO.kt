@@ -1,7 +1,7 @@
 package io.github.aag.core.data.network.models
 
 import io.github.aag.core.domain.models.UserProfile
-import io.github.aag.core.domain.models.UserType
+import io.github.aag.core.domain.models.UserRole
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -21,14 +21,14 @@ data class UserProfileDTO(
     val email: String? = null,
     @SerialName("telegram_id")
     val telegramId: String? = null,
-    @SerialName("user_type")
-    val userType: UserType
+    @SerialName("user_role")
+    val userRole: UserRole
 )
 
 fun UserProfileDTO.toUserProfile(): UserProfile =
     UserProfile(
         username = username,
-        userType = userType,
+        userRole = userRole,
         avatarUrl = avatarUrl,
         firstName = firstName,
         lastName = lastName,

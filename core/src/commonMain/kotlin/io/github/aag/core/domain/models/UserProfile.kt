@@ -2,7 +2,7 @@ package io.github.aag.core.domain.models
 
 class UserProfile(
     val username: String,
-    val userType: UserType,
+    val userRole: UserRole,
     val avatarUrl: String? = null,
     val firstName: String? = null,
     val lastName: String? = null,
@@ -12,7 +12,7 @@ class UserProfile(
 ) {
     class Builder {
         private var username: String = ""
-        private var userType: UserType = UserType.UNKNOWN
+        private var userRole: UserRole = UserRole.UNKNOWN
         private var avatarUrl: String? = null
         private var firstName: String? = null
         private var lastName: String? = null
@@ -55,15 +55,15 @@ class UserProfile(
                 telegramId = value
             }
 
-        fun withUserTYpe(value: UserType): Builder =
+        fun withUserTYpe(value: UserRole): Builder =
             this.apply {
-                userType = value
+                userRole = value
             }
 
         fun build(): UserProfile =
             UserProfile(
                 username = username,
-                userType = userType,
+                userRole = userRole,
                 avatarUrl = avatarUrl,
                 firstName = firstName,
                 lastName = lastName,
@@ -74,6 +74,6 @@ class UserProfile(
     }
 
     companion object {
-        val GUEST = UserProfile(username = "", userType = UserType.GUEST)
+        val GUEST = UserProfile(username = "", userRole = UserRole.GUEST)
     }
 }
