@@ -55,7 +55,7 @@ fun ProfileScreen(
             .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) {
         BoxWithConstraints(modifier = Modifier.weight(AppConstants.PROFILE_BOX_WEIGHT)) {
-            ProfileView(userData = userData) {
+            ProfileScreenContent(userData = userData) {
                 maxHeight
             }
         }
@@ -63,7 +63,7 @@ fun ProfileScreen(
 }
 
 @Composable
-internal fun ProfileView(
+internal fun ProfileScreenContent(
     userData: ProfileScreenState,
     containerHeightProvider: () -> Dp
 ) {

@@ -2,28 +2,25 @@ package io.github.androidacademyglobal.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.github.androidacademyglobal.R
+import io.github.aag.core.domain.OperationResult
+import io.github.aag.core.domain.models.UserProfile
+import io.github.aag.core.domain.repositories.ProfileRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
-class ProfileViewModel : ViewModel() {
+private const val STOP_TIMEOUT = 5000L
+
+class ProfileViewModel(
+    profileRepository: ProfileRepository
+) : ViewModel() {
     val state: StateFlow<ProfileScreenState> =
-        // just stub for this moment
-        flow {
-            emit(
-                ProfileScreenState(
-                    userId = "userId",
-                    photo = R.drawable.ic_launcher_background,
-                    displayName = "Grinya",
-                    email = "test@google.com",
-                    telegram = "GMachine"
-                )
+        profileRepository.getUserProfile()
+            .map(OperationResult<UserProfile>::asScreenState)
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(STOP_TIMEOUT),
+                initialValue = ProfileScreenState.EMPTY
             )
-        }.stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = ProfileScreenState.Empty
-        )
 }
