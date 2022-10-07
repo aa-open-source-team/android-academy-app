@@ -21,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,16 +32,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.androidacademyglobal.R
 import io.github.androidacademyglobal.components.baselineHeight
 import io.github.androidacademyglobal.ui.theme.AppConstants
 import io.github.androidacademyglobal.ui.theme.DimensionConstants
+import org.koin.androidx.compose.getViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
 @Composable
-fun ProfileScreen(userData: ProfileScreenState) {
-
-    val scrollState = rememberScrollState()
+fun ProfileScreen(
+    viewModel: ProfileViewModel = getViewModel()
+) {
+    val userData by viewModel.state.collectAsStateWithLifecycle()
     val topAppBarState = rememberTopAppBarState()
     val scrollBehavior = remember { TopAppBarDefaults.pinnedScrollBehavior(topAppBarState) }
 
@@ -50,20 +55,31 @@ fun ProfileScreen(userData: ProfileScreenState) {
             .nestedScroll(scrollBehavior.nestedScrollConnection)
     ) {
         BoxWithConstraints(modifier = Modifier.weight(AppConstants.PROFILE_BOX_WEIGHT)) {
-            Surface {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .verticalScroll(scrollState),
-                ) {
-                    ProfileHeader(
-                        scrollState,
-                        userData,
-                        this@BoxWithConstraints.maxHeight
-                    )
-                    UserInfoFields(userData, this@BoxWithConstraints.maxHeight)
-                }
+            ProfileScreenContent(userData = userData) {
+                maxHeight
             }
+        }
+    }
+}
+
+@Composable
+internal fun ProfileScreenContent(
+    userData: ProfileScreenState,
+    containerHeightProvider: () -> Dp
+) {
+    val scrollState = rememberScrollState()
+    Surface {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState),
+        ) {
+            ProfileHeader(
+                scrollState,
+                userData,
+                containerHeightProvider
+            )
+            UserInfoFields(userData, containerHeightProvider)
         }
     }
 }
@@ -72,7 +88,7 @@ fun ProfileScreen(userData: ProfileScreenState) {
 private fun ProfileHeader(
     scrollState: ScrollState,
     data: ProfileScreenState,
-    containerHeight: Dp
+    containerHeightProvider: () -> Dp
 ) {
     val offset = (scrollState.value / AppConstants.PROFILE_OFFSET_DIVIDER)
     val offsetDp = with(LocalDensity.current) { offset.toDp() }
@@ -80,7 +96,7 @@ private fun ProfileHeader(
     data.photo?.let {
         Image(
             modifier = Modifier
-                .heightIn(max = containerHeight / AppConstants.PROFILE_OFFSET_DIVIDER)
+                .heightIn(max = containerHeightProvider() / AppConstants.PROFILE_OFFSET_DIVIDER)
                 .fillMaxWidth()
                 .padding(
                     start = DimensionConstants.MARGIN_MEDIUM.dp,
@@ -96,7 +112,10 @@ private fun ProfileHeader(
 }
 
 @Composable
-private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
+private fun UserInfoFields(
+    userData: ProfileScreenState,
+    containerHeightProvider: () -> Dp
+) {
     Column {
         Spacer(modifier = Modifier.height(DimensionConstants.MARGIN_SMALL.dp))
 
@@ -108,7 +127,7 @@ private fun UserInfoFields(userData: ProfileScreenState, containerHeight: Dp) {
 
         Spacer(
             Modifier.height(
-                (containerHeight - DimensionConstants.PROFILE_SCREEN_BOTTOM_MARGIN.dp).coerceAtLeast(
+                (containerHeightProvider() - DimensionConstants.PROFILE_SCREEN_BOTTOM_MARGIN.dp).coerceAtLeast(
                     DimensionConstants.ZERO.dp
                 )
             )
