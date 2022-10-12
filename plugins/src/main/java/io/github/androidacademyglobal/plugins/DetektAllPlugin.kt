@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.named
 
-class DetektAllPlugin : Plugin<Project> {
+internal class DetektAllPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         target.run {
             configureDetekt()
@@ -35,7 +35,7 @@ class DetektAllPlugin : Plugin<Project> {
         }
         project.extensions.configure<DetektExtension> {
             config =
-                project.files("$rootDir/linters/detekt-config.yml")
+                project.files("$rootDir/.detekt/detekt-config.yml")
             source = files(
                 subprojects
                     .flatMap { pr ->
@@ -47,6 +47,7 @@ class DetektAllPlugin : Plugin<Project> {
                         )
                     }
             )
+            baseline = file("$rootDir/.detekt/baseline.xml")
         }
         dependencies.add(
             "detektPlugins",
