@@ -8,7 +8,7 @@ import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.named
 import java.util.Locale
 
-class DependenciesUpdaterPlugin : Plugin<Project> {
+internal class DependenciesUpdaterPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         target.run {
             if (this == rootProject) {
