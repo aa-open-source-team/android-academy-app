@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import io.github.aag.core.domain.models.UserProfile.Companion.GUEST
+import io.github.aakira.napier.Napier
 import io.github.androidacademyglobal.ui.theme.AndroidAcademyAppTheme
 
 class AppActivity : ComponentActivity() {
@@ -31,5 +32,6 @@ class AppActivity : ComponentActivity() {
     @Composable
     private fun Greeting(name: String) {
         Text(text = "Hello $name!")
+        Napier.d("Greeting has been displayed")
     }
 }

@@ -27,6 +27,9 @@ kotlin {
                 implementation(libs.coroutines)
 
                 api(libs.koin.core)
+
+                // Logging
+                api(libs.napier)
             }
         }
         val androidMain by getting {

@@ -73,9 +73,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
 
-    // Logging
-    implementation(libs.timber)
-
     // SharedPreference
     implementation(libs.dataStore)
 
