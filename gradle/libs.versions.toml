@@ -28,6 +28,9 @@ playServicesAuth = "20.2.0"
 serialization = "1.3.3"
 
 # third party libs
+firebase = "30.5.0"
+crashlyticsPlugin = "2.9.2"
+gservicesPlugin = "4.3.14"
 glideCompose = "1.6.1"
 napier = "2.6.1"
 
@@ -63,6 +66,9 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 
 # third party libs
+firebase = { module = "com.google.firebase:firebase-bom", version.ref = "firebase" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
 glideComposeVersion = { module = "com.github.skydoves:landscapist-glide", version.ref = "glideCompose" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 
@@ -73,12 +79,15 @@ kaspresso = { module = "com.kaspersky.android-components:kaspresso-compose-suppo
 workManagerTest = { module = "androidx.work:work-testing", version.ref = "workManager" }
 
 [plugins]
-androidPlugin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kaptPlugin = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 appPlugin = { id = "com.android.application", version.ref = "android" }
+androidPlugin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+crashlyticsPlugin = { id = "com.google.firebase.crashlytics", version.ref = "crashlyticsPlugin" }
+gservicesPlugin = { id = "com.google.gms.google-services", version.ref = "gservicesPlugin" }
+kaptPlugin = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 multiplatformPlugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 serializationPlugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 libraryPlugin = { id = "com.android.library", version.ref = "android" }
+
 
 # Google
 [bundles]

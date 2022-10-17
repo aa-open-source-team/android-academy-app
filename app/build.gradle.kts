@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.appPlugin)
     alias(libs.plugins.androidPlugin)
     alias(libs.plugins.kaptPlugin)
+    alias(libs.plugins.crashlyticsPlugin)
+    alias(libs.plugins.gservicesPlugin)
 }
 
 android {
@@ -14,7 +16,7 @@ android {
     buildToolsVersion = androidBuildTools
 
     defaultConfig {
-        applicationId = "io.github.android_academy_global"
+        applicationId = "io.github.androidacademyglobal"
         minSdk = androidMinSdk
         targetSdk = androidTargetSdk
         versionCode = 1
@@ -64,6 +66,11 @@ dependencies {
 
     // auth
     implementation(libs.playServicesAuth)
+
+    // firebase crashlytics
+    implementation(project.dependencies.platform(libs.firebase))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
 
     // Core
     implementation(libs.androidCore)

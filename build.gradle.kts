@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.kaptPlugin) apply false
     alias(libs.plugins.multiplatformPlugin) apply false
     alias(libs.plugins.serializationPlugin) apply false
+    alias(libs.plugins.crashlyticsPlugin) apply false
+    alias(libs.plugins.gservicesPlugin) apply false
 }
 
 allprojects {
