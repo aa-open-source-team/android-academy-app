@@ -1,6 +1,7 @@
 package io.github.androidacademyglobal.logging
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import io.github.aakira.napier.Antilog
 import io.github.aakira.napier.LogLevel
 
@@ -14,7 +15,7 @@ internal class CrashlyticsAntilog : Antilog() {
         // send only error log
         if (priority >= LogLevel.ERROR) {
             throwable?.let { e ->
-                FirebaseCrashlytics.getInstance().recordException(e)
+                Firebase.crashlytics.recordException(e)
             }
         }
     }

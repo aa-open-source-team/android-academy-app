@@ -68,7 +68,7 @@ dependencies {
     implementation(libs.playServicesAuth)
 
     // firebase crashlytics
-    implementation(project.dependencies.platform(libs.firebase))
+    implementation(platform(libs.firebase))
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.analytics)
 

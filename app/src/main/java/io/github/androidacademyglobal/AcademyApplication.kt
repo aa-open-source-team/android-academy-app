@@ -2,7 +2,8 @@ package io.github.androidacademyglobal
 
 import android.app.Application
 import com.google.firebase.FirebaseApp
-import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import io.github.aag.core.di.initKoin
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
@@ -23,7 +24,7 @@ class AcademyApplication : Application() {
         if (!BuildConfig.DEBUG) {
             FirebaseApp.initializeApp(this)
                 .also {
-                    FirebaseCrashlytics.getInstance()
+                    Firebase.crashlytics
                         .setCrashlyticsCollectionEnabled(true)
                 }
             Napier.base(CrashlyticsAntilog())
