@@ -1,4 +1,4 @@
-package io.github.androidacademyglobal.profile
+package io.github.androidacademyglobal.ui.profile
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Immutable

@@ -1,4 +1,4 @@
-package io.github.androidacademyglobal.profile
+package io.github.androidacademyglobal.ui.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.androidacademyglobal.R
-import io.github.androidacademyglobal.components.baselineHeight
+import io.github.androidacademyglobal.ui.components.baselineHeight
 import io.github.androidacademyglobal.ui.theme.AppConstants
 import io.github.androidacademyglobal.ui.theme.DimensionConstants
 import org.koin.androidx.compose.getViewModel

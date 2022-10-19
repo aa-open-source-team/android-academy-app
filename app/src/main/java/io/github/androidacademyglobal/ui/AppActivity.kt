@@ -1,4 +1,4 @@
-package io.github.androidacademyglobal
+package io.github.androidacademyglobal.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,4 +1,4 @@
-package io.github.androidacademyglobal.profile
+package io.github.androidacademyglobal.ui.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

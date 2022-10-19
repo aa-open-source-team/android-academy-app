@@ -1,4 +1,4 @@
-package io.github.androidacademyglobal.components
+package io.github.androidacademyglobal.ui.components
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.FirstBaseline

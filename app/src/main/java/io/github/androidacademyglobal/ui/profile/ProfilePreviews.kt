@@ -1,4 +1,4 @@
-package io.github.androidacademyglobal.profile
+package io.github.androidacademyglobal.ui.profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

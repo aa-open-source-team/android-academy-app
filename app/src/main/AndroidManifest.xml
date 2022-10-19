@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAcademyApp">
         <activity
-            android:name="io.github.androidacademyglobal.AppActivity"
+            android:name="io.github.androidacademyglobal.ui.AppActivity"
             android:exported="true"
             android:theme="@style/Theme.AndroidAcademyApp">
             <intent-filter>
