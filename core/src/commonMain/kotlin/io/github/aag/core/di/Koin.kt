@@ -1,7 +1,19 @@
 package io.github.aag.core.di
 
+import io.github.aag.core.data.network.repos.CourseRepositoryImpl
+import io.github.aag.core.data.network.sources.CoursesRemoteDataSource
+import io.github.aag.core.domain.repositories.CourseRepository
 import io.github.aag.core.domain.repositories.ProfileRepository
 import io.github.aag.core.domain.repositories.ProfileRepositoryImpl
+import io.ktor.client.HttpClient
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.resources.Resources
+import io.ktor.http.ContentType
+import io.ktor.http.URLProtocol
+import io.ktor.http.contentType
+import io.ktor.serialization.kotlinx.json.json
 import org.koin.core.context.startKoin
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.KoinAppDeclaration
@@ -11,9 +23,35 @@ import org.koin.dsl.module
 fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
     startKoin {
         appDeclaration()
-        modules(commonModule())
+        modules(
+            commonModule(),
+            networkModule()
+        )
     }
 
 fun commonModule() = module {
     singleOf(::ProfileRepositoryImpl) bind ProfileRepository::class
+}
+
+internal fun networkModule() = module {
+    singleOf<HttpClient> {
+        HttpClient {
+            install(Logging)
+            install(Resources)
+            install(ContentNegotiation) {
+                json()
+            }
+            defaultRequest {
+                contentType(ContentType.Application.Json)
+                host = "10.0.2.2" // fixme: introduce a const
+                port = 8080 // fixme: remove when backend is deployed
+                url { protocol = URLProtocol.HTTP }
+//                headers {
+//                    append(HttpHeaders.Authorization, "")
+//                }
+            }
+        }
+    }
+    single { CoursesRemoteDataSource(get()) }
+    single<CourseRepository> { CourseRepositoryImpl(get()) }
 }

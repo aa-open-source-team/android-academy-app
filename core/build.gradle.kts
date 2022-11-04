@@ -26,6 +26,13 @@ kotlin {
                 // Concurrency
                 implementation(libs.coroutines)
 
+                // Network
+                implementation(libs.ktor.core)
+                implementation(libs.ktor.logging)
+                implementation(libs.ktor.resources)
+                implementation(libs.ktor.json)
+                implementation(libs.ktor.content.negotiation)
+
                 api(libs.koin.core)
 
                 // Logging
@@ -35,6 +42,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.coroutinesAndroid)
+                implementation(libs.ktor.okhttp)
             }
         }
     }

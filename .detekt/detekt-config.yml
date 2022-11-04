@@ -678,7 +678,7 @@ style:
     active: true
   #    excludes: ['**']
   LibraryEntitiesShouldNotBePublic:
-    active: true
+    active: false
   #    excludes: ['**']
   LoopWithTooManyJumpStatements:
     active: true
