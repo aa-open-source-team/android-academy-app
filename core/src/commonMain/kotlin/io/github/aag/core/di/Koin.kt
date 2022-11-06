@@ -5,15 +5,18 @@ import io.github.aag.core.data.network.sources.CoursesRemoteDataSource
 import io.github.aag.core.domain.repositories.CourseRepository
 import io.github.aag.core.domain.repositories.ProfileRepository
 import io.github.aag.core.domain.repositories.ProfileRepositoryImpl
+import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.resources.Resources
 import io.ktor.http.ContentType
 import io.ktor.http.URLProtocol
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import org.koin.core.context.startKoin
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.KoinAppDeclaration
@@ -36,10 +39,16 @@ fun commonModule() = module {
 internal fun networkModule() = module {
     singleOf<HttpClient> {
         HttpClient {
-            install(Logging)
+            install(Logging) {
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        Napier.v("HTTP Client", null, message)
+                    }
+                }
+            }
             install(Resources)
             install(ContentNegotiation) {
-                json()
+                json(Json { isLenient = true; ignoreUnknownKeys = true })
             }
             defaultRequest {
                 contentType(ContentType.Application.Json)
