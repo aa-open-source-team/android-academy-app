@@ -19,7 +19,7 @@ class CourseRepositoryImpl(
     override val allCourses: StateFlow<OperationResult<List<Course>>> =
         _allCourses.asStateFlow()
 
-    override suspend fun loadAllCourses(): StateFlow<OperationResult<List<Course>>> {
+    override suspend fun loadAllCourses() {
         try {
             remoteDataSource.getAllCourses()
                 .map { entity -> entity.toCourse() }
@@ -29,7 +29,6 @@ class CourseRepositoryImpl(
         } catch (t: Throwable) {
             _allCourses.value = OperationResult.Error(t)
         }
-        return _allCourses.asStateFlow()
     }
 
 

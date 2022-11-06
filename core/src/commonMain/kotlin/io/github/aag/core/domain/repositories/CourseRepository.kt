@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 interface CourseRepository {
     val allCourses: StateFlow<OperationResult<List<Course>>>
 
-    suspend fun loadAllCourses(): StateFlow<OperationResult<List<Course>>>
+    suspend fun loadAllCourses()
 
     suspend fun <T> getFavouriteCourses(username: String): OperationResult<List<Course>>
 
