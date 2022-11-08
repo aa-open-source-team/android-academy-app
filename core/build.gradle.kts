@@ -45,6 +45,11 @@ kotlin {
                 implementation(libs.ktor.okhttp)
             }
         }
+        val iosMain by creating {
+            dependencies {
+                implementation(libs.ktor.darwin)
+            }
+        }
     }
 }
 

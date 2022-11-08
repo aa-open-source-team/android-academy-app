@@ -74,6 +74,7 @@ glideComposeVersion = { module = "com.github.skydoves:landscapist-glide", versio
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-resources = { module = "io.ktor:ktor-client-resources", version.ref = "ktor" }
 ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
