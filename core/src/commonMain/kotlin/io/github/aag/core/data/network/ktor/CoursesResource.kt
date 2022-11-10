@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 class CoursesResource {
     @Serializable
-    @Resource("/courses/all")
-    class All()
+    @Resource("courses/all")
+    class All
 }
