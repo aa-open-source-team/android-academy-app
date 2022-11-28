@@ -8,4 +8,12 @@ class CoursesResource {
     @Serializable
     @Resource("courses/all")
     class All
+
+    @Serializable
+    @Resource("courses/favorite")
+    class Favorite
+
+    @Serializable
+    @Resource("courses/update")
+    class Update
 }

@@ -1,5 +1,7 @@
 package io.github.aag.core.data.network.repos
 
+import io.github.aag.core.data.network.models.CourseDTO
+import io.github.aag.core.data.network.models.fromCourse
 import io.github.aag.core.data.network.models.toCourse
 import io.github.aag.core.data.network.sources.CoursesRemoteDataSource
 import io.github.aag.core.domain.OperationResult
@@ -23,18 +25,31 @@ class CourseRepositoryImpl(
         _allCourses.value = try {
             OperationResult.Success(
                 remoteDataSource.getAllCourses()
-                    .map { entity -> entity.toCourse() }
+                    .map(CourseDTO::toCourse)
             )
         } catch (t: Throwable) {
             OperationResult.Error(t)
         }
     }
 
-    override suspend fun <T> getFavouriteCourses(username: String): OperationResult<List<Course>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getFavouriteCourses(username: String): OperationResult<List<Course>> =
+        try {
+            OperationResult.Success(
+                remoteDataSource.getFavoriteCourses()
+                    .map(CourseDTO::toCourse)
+            )
+        } catch (t: Throwable) {
+            OperationResult.Error(t)
+        }
 
-    override suspend fun <T> updateCourse(course: Course): OperationResult<List<Course>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun updateCourse(course: Course): OperationResult<Course> =
+        try {
+            OperationResult.Success(
+                remoteDataSource.updateCourse(fromCourse(course))
+                    .toCourse()
+            )
+        } catch (t: Throwable) {
+            OperationResult.Error(t)
+        }
+
 }

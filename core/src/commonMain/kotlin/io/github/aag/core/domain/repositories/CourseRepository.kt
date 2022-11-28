@@ -9,7 +9,7 @@ interface CourseRepository {
 
     suspend fun loadAllCourses()
 
-    suspend fun <T> getFavouriteCourses(username: String): OperationResult<List<Course>>
+    suspend fun getFavouriteCourses(username: String): OperationResult<List<Course>>
 
-    suspend fun <T> updateCourse(course: Course): OperationResult<List<Course>>
+    suspend fun updateCourse(course: Course): OperationResult<Course>
 }

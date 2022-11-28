@@ -50,3 +50,21 @@ fun CourseDTO.toCourse(): Course =
         fullDescription = fullDescription,
         coverImgUrl = coverImgUrl
     )
+
+fun fromCourse(course: Course): CourseDTO =
+    with(course) {
+        CourseDTO(
+            id = id,
+            title = title,
+            shortDescription = shortDescription,
+            fullDescription = fullDescription,
+            coverImgUrl = coverImgUrl,
+            tags = tags,
+            language = language,
+            startTimestampSec = startTimestampSec,
+            endTimestampSec = endTimestampSec,
+            hostCities = hostCities,
+            mode = mode,
+            isSubscribed = isSubscribed
+        )
+    }
