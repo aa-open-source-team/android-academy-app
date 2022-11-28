@@ -20,17 +20,15 @@ class CourseRepositoryImpl(
         _allCourses.asStateFlow()
 
     override suspend fun loadAllCourses() {
-        try {
-            remoteDataSource.getAllCourses()
-                .map { entity -> entity.toCourse() }
-                .also { courses ->
-                    _allCourses.value = OperationResult.Success(courses)
-                }
+        _allCourses.value = try {
+            OperationResult.Success(
+                remoteDataSource.getAllCourses()
+                    .map { entity -> entity.toCourse() }
+            )
         } catch (t: Throwable) {
-            _allCourses.value = OperationResult.Error(t)
+            OperationResult.Error(t)
         }
     }
-
 
     override suspend fun <T> getFavouriteCourses(username: String): OperationResult<List<Course>> {
         TODO("Not yet implemented")
