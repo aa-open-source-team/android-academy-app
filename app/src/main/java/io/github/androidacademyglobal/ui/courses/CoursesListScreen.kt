@@ -10,14 +10,15 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun CoursesListScreen(vm: CoursesViewModel = getViewModel()) {
     val allCourses = vm.allCourses.collectAsStateWithLifecycle()
-    val result = allCourses.value
-    when (result) {
+    when (val result = allCourses.value) {
         is OperationResult.Success -> {
             println(result)
         }
+
         is OperationResult.Error -> {
             println(result.throwable.message)
         }
+
         else -> {
             // todo: implement loading and error
         }
