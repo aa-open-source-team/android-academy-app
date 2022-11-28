@@ -12,16 +12,16 @@ class CoursesRemoteDataSource(
     private val httpClient: HttpClient
 ) {
     suspend fun getAllCourses(): List<CourseDTO> =
-        httpClient.get(CoursesResource.All)
+        httpClient.get(CoursesResource.All())
             .body()
 
     suspend fun getFavoriteCourses(): List<CourseDTO> =
-        httpClient.get(CoursesResource.Favorite)
+        httpClient.get(CoursesResource.Favorite())
             .body()
 
     suspend fun updateCourse(course: CourseDTO): CourseDTO =
         httpClient.post(
-            resource = CoursesResource.Update
+            resource = CoursesResource.Update()
         ) {
             setBody(course)
         }.body()
