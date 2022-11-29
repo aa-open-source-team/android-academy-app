@@ -2,11 +2,14 @@ package io.github.aag.core.domain.repositories
 
 import io.github.aag.core.domain.OperationResult
 import io.github.aag.core.domain.models.Course
+import kotlinx.coroutines.flow.StateFlow
 
 interface CourseRepository {
-    suspend fun <T> getAllCourses(): OperationResult<T>
+    val allCourses: StateFlow<OperationResult<List<Course>>>
 
-    suspend fun <T> getFavouriteCourses(username: String): OperationResult<T>
+    suspend fun loadAllCourses()
 
-    suspend fun <T> updateCourse(course: Course): OperationResult<T>
+    suspend fun getFavouriteCourses(username: String): OperationResult<List<Course>>
+
+    suspend fun updateCourse(course: Course): OperationResult<Course>
 }

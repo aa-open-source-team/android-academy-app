@@ -3,9 +3,9 @@ package io.github.aag.core.domain
 
 sealed class OperationResult<out T> {
 
-    data class Success<T>(val data: T) : OperationResult<T>()
+    class Success<T>(val data: T) : OperationResult<T>()
 
-    data class Error<T>(val throwable: T) : OperationResult<T>()
+    class Error(val throwable: Throwable) : OperationResult<Nothing>()
 
-    class Loading : OperationResult<Nothing>()
+    object Loading : OperationResult<Nothing>()
 }

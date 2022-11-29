@@ -20,16 +20,17 @@ data class ProfileScreenState(
 }
 
 // TODO: think about writing mappers. this is just a stub
-internal fun OperationResult<UserProfile>.asScreenState() = when (this) {
-    is OperationResult.Success -> data.let {
-        ProfileScreenState(
-            userId = it.username,
-            photo = R.drawable.ic_launcher_background,
-            displayName = it.firstName.orEmpty() + " " + it.lastName.orEmpty(),
-            email = it.email.orEmpty(),
-            telegram = it.telegramId.orEmpty()
-        )
+internal fun OperationResult<UserProfile>.asScreenState() =
+    when (this) {
+        is OperationResult.Success -> data.let {
+            ProfileScreenState(
+                userId = it.username,
+                photo = R.drawable.ic_launcher_background,
+                displayName = it.firstName.orEmpty() + " " + it.lastName.orEmpty(),
+                email = it.email.orEmpty(),
+                telegram = it.telegramId.orEmpty()
+            )
+        }
+        is OperationResult.Error -> ProfileScreenState()
+        is OperationResult.Loading -> ProfileScreenState()
     }
-    is OperationResult.Error -> ProfileScreenState()
-    is OperationResult.Loading -> ProfileScreenState()
-}

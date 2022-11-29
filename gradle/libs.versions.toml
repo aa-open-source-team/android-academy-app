@@ -33,6 +33,7 @@ crashlyticsPlugin = "2.9.2"
 gservicesPlugin = "4.3.14"
 glideCompose = "1.6.1"
 napier = "2.6.1"
+ktor = "2.1.2"
 
 # testing
 junit = "4.13.2"
@@ -71,6 +72,13 @@ firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx"
 firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
 glideComposeVersion = { module = "com.github.skydoves:landscapist-glide", version.ref = "glideCompose" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-resources = { module = "io.ktor:ktor-client-resources", version.ref = "ktor" }
+ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 
 # testing
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -87,7 +95,6 @@ kaptPlugin = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 multiplatformPlugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 serializationPlugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 libraryPlugin = { id = "com.android.library", version.ref = "android" }
-
 
 # Google
 [bundles]

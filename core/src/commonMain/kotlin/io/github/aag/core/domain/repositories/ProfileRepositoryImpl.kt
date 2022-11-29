@@ -22,7 +22,7 @@ class ProfileRepositoryImpl : ProfileRepository {
         )
     }
 
-    override suspend fun <T> saveProfileData(profile: UserProfile): OperationResult<T> {
+    override suspend fun saveProfileData(profile: UserProfile): OperationResult<UserProfile> {
         TODO("Not yet implemented")
     }
 }
