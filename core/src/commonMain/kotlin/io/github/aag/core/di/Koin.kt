@@ -1,10 +1,12 @@
 package io.github.aag.core.di
 
 import io.github.aag.core.data.network.repos.CourseRepositoryImpl
+import io.github.aag.core.data.network.repos.LessonsRepositoryImpl
+import io.github.aag.core.data.network.repos.ProfileRepositoryImpl
 import io.github.aag.core.data.network.sources.CoursesRemoteDataSource
 import io.github.aag.core.domain.repositories.CourseRepository
+import io.github.aag.core.domain.repositories.LessonsRepository
 import io.github.aag.core.domain.repositories.ProfileRepository
-import io.github.aag.core.domain.repositories.ProfileRepositoryImpl
 import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -63,4 +65,5 @@ internal fun networkModule() = module {
     }
     single { CoursesRemoteDataSource(get()) }
     single<CourseRepository> { CourseRepositoryImpl(get()) }
+    single<LessonsRepository> { LessonsRepositoryImpl(get()) }
 }
