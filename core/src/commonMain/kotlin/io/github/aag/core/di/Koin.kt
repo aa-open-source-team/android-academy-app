@@ -1,9 +1,14 @@
 package io.github.aag.core.di
 
+import io.github.aag.core.data.network.repos.AuthRepositoryImpl
 import io.github.aag.core.data.network.repos.CourseRepositoryImpl
 import io.github.aag.core.data.network.repos.LessonsRepositoryImpl
 import io.github.aag.core.data.network.repos.ProfileRepositoryImpl
 import io.github.aag.core.data.network.sources.CoursesRemoteDataSource
+import io.github.aag.core.data.network.sources.LessonsRemoteDataSource
+import io.github.aag.core.data.network.sources.LoginRemoteDataResource
+import io.github.aag.core.data.network.sources.RegisterRemoteDataSource
+import io.github.aag.core.domain.repositories.AuthRepository
 import io.github.aag.core.domain.repositories.CourseRepository
 import io.github.aag.core.domain.repositories.LessonsRepository
 import io.github.aag.core.domain.repositories.ProfileRepository
@@ -64,6 +69,10 @@ internal fun networkModule() = module {
         }
     }
     single { CoursesRemoteDataSource(get()) }
+    single { LessonsRemoteDataSource(get()) }
+    single { LoginRemoteDataResource(get()) }
+    single { RegisterRemoteDataSource(get()) }
     single<CourseRepository> { CourseRepositoryImpl(get()) }
     single<LessonsRepository> { LessonsRepositoryImpl(get()) }
+    single<AuthRepository> { AuthRepositoryImpl(get(), get()) }
 }
