@@ -8,5 +8,5 @@ data class LoginResponseDTO(
     @SerialName("user_profile")
     val userProfile: UserProfileDTO,
     @SerialName("token")
-    val token: String
+    val refreshToken: String
 )
