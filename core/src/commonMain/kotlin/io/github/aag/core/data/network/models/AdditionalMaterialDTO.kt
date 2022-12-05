@@ -14,3 +14,11 @@ data class AdditionalMaterialDTO(
 
 fun AdditionalMaterialDTO.toAdditionalMaterial(): AdditionalMaterial =
     AdditionalMaterial(topicName = topicName, url = url)
+
+fun fromAdditionalMaterial(additionalMaterial: AdditionalMaterial): AdditionalMaterialDTO =
+    with(additionalMaterial) {
+        AdditionalMaterialDTO(
+            topicName = topicName,
+            url = url
+        )
+    }
