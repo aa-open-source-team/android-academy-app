@@ -1,17 +1,18 @@
 package io.github.aag.core.domain.repositories
 
 import io.github.aag.core.domain.OperationResult
+import io.github.aag.core.domain.models.UserProfile
 import io.github.aag.core.domain.models.UserRole
 
 interface AuthRepository {
-    suspend fun <T> login(username: String, password: String): OperationResult<T>
+    suspend fun login(username: String, password: String): OperationResult<UserProfile>
 
-    suspend fun <T> register(
+    suspend fun register(
         username: String,
         password: String,
         name: String,
         userRole: UserRole
-    ): OperationResult<T>
+    ): OperationResult<UserProfile>
 
     suspend fun enterGuestMode(): Boolean
 }

@@ -4,9 +4,11 @@ import io.github.aag.core.domain.OperationResult
 import io.github.aag.core.domain.models.Lesson
 
 interface LessonsRepository {
-    suspend fun <T> getAllLessons(courseId: Long): OperationResult<T>
+    suspend fun getAllLessons(): OperationResult<List<Lesson>>
 
-    suspend fun <T> getLesson(id: Long): OperationResult<T>
+    suspend fun getLessons(courseId: Long): OperationResult<List<Lesson>>
 
-    suspend fun <T> updateLesson(lesson: Lesson): OperationResult<T>
+    suspend fun getLesson(id: Long): OperationResult<Lesson>
+
+    suspend fun updateLesson(lesson: Lesson): OperationResult<Lesson>
 }

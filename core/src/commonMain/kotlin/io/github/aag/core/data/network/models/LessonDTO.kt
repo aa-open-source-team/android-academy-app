@@ -34,7 +34,7 @@ data class LessonDTO(
     val isFavourite: Boolean
 )
 
-fun LessonDTO.toLecture(): Lesson =
+fun LessonDTO.toLesson(): Lesson =
     Lesson(
         id = id,
         title = title,
@@ -50,3 +50,26 @@ fun LessonDTO.toLecture(): Lesson =
         githubRepoUrl = githubRepoUrl,
         telegramChannel = telegramChannel
     )
+
+fun fromLesson(lesson: Lesson): LessonDTO =
+    with(lesson) {
+        LessonDTO(
+            id = id,
+            title = title,
+            additionalMaterials = additionalMaterials.map { material ->
+                fromAdditionalMaterial(
+                    material
+                )
+            },
+            tags = tags,
+            startTimestampSec = startTimestampSec,
+            endTimestampSec = endTimestampSec,
+            isFavourite = isFavourite,
+            shortDescription = shortDescription,
+            fullDescription = fullDescription,
+            coverImgUrl = coverImgUrl,
+            youtubeUrl = youtubeUrl,
+            githubRepoUrl = githubRepoUrl,
+            telegramChannel = telegramChannel
+        )
+    }

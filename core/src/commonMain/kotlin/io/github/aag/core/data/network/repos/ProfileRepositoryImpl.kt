@@ -1,8 +1,9 @@
-package io.github.aag.core.domain.repositories
+package io.github.aag.core.data.network.repos
 
 import io.github.aag.core.domain.OperationResult
 import io.github.aag.core.domain.models.UserProfile
 import io.github.aag.core.domain.models.UserRole
+import io.github.aag.core.domain.repositories.ProfileRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
