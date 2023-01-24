@@ -6,7 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class LoginResponseDTO(
     @SerialName("user_profile")
-    val userProfile: UserProfileDTO,
-    @SerialName("token")
-    val refreshToken: String
+    val userProfile: UserProfileDTO
 )

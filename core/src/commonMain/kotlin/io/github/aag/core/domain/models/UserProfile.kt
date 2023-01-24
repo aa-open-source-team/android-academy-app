@@ -1,5 +1,8 @@
 package io.github.aag.core.domain.models
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class UserProfile(
     val username: String,
     val userRole: UserRole,

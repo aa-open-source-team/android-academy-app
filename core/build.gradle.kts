@@ -23,6 +23,10 @@ kotlin {
                 // Serialization
                 implementation(libs.serialization)
 
+                // local storage
+                api(libs.dataStorePrefs)
+                api(libs.dataStoreOkio)
+
                 // Concurrency
                 implementation(libs.coroutines)
 

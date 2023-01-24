@@ -80,9 +80,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
 
-    // SharedPreference
-    implementation(libs.dataStore)
-
     // WorkManager
     implementation(libs.workManager)
     androidTestImplementation(libs.workManagerTest)

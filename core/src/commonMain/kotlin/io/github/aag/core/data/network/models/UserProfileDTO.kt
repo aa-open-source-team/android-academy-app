@@ -22,7 +22,9 @@ data class UserProfileDTO(
     @SerialName("telegram_id")
     val telegramId: String? = null,
     @SerialName("user_role")
-    val userRole: UserRole
+    val userRole: UserRole,
+    @SerialName("token")
+    val refreshToken: String
 )
 
 fun UserProfileDTO.toUserProfile(): UserProfile =
