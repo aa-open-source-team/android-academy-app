@@ -36,5 +36,6 @@ fun UserProfileDTO.toUserProfile(): UserProfile =
         lastName = lastName,
         phoneNumber = phoneNumber,
         email = email,
-        telegramId = telegramId
+        telegramId = telegramId,
+        refreshToken = refreshToken
     )

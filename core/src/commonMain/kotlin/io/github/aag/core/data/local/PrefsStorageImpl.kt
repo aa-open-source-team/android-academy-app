@@ -25,7 +25,6 @@ class PrefsStorageImpl(
                 prefs[PROFILE_KEY]
                     ?.let { profileJson ->
                         Json.decodeFromString(UserProfile.serializer(), profileJson)
-
                     }
             }
 
