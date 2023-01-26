@@ -1,5 +1,6 @@
 package io.github.aag.core.data.network.repos
 
+import io.github.aag.core.data.local.PrefsStorage
 import io.github.aag.core.data.network.models.LoginRequestDTO
 import io.github.aag.core.data.network.models.RegisterRequestDTO
 import io.github.aag.core.data.network.models.toUserProfile
@@ -12,7 +13,8 @@ import io.github.aag.core.domain.repositories.AuthRepository
 
 class AuthRepositoryImpl(
     private val loginRemoteDataResource: LoginRemoteDataResource,
-    private val registerRemoteDataSource: RegisterRemoteDataSource
+    private val registerRemoteDataSource: RegisterRemoteDataSource,
+    private val prefsStorage: PrefsStorage
 ) : AuthRepository {
     override suspend fun login(username: String, password: String): OperationResult<UserProfile> =
         try {
@@ -22,10 +24,12 @@ class AuthRepositoryImpl(
                     pwd = password
                 )
             )
-            // fixme: save token (via AccountManager?) and user profile (to DataStore?)
             OperationResult.Success(
                 loginResponse.userProfile
                     .toUserProfile()
+                    .also { userProfile ->
+                        prefsStorage.saveProfile(userProfile)
+                    }
             )
         } catch (t: Throwable) {
             OperationResult.Error(t)
@@ -46,10 +50,12 @@ class AuthRepositoryImpl(
                     name = name
                 )
             )
-            // fixme: save token (via AccountManager?) and user profile (to DataStore?)
             OperationResult.Success(
                 loginResponse.userProfile
                     .toUserProfile()
+                    .also { userProfile ->
+                        prefsStorage.saveProfile(userProfile)
+                    }
             )
         } catch (t: Throwable) {
             OperationResult.Error(t)
