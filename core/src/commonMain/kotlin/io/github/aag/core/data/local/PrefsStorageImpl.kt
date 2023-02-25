@@ -28,7 +28,20 @@ class PrefsStorageImpl(
                     }
             }
 
+    override suspend fun saveAuthToken(token: String) {
+        dataStore.edit { prefs ->
+            prefs[TOKEN_KEY] = token
+        }
+    }
+
+    override fun getAuthToken(): Flow<String> =
+        dataStore.data
+            .mapNotNull { prefs ->
+                prefs[TOKEN_KEY]
+            }
+
     companion object {
         private val PROFILE_KEY = stringPreferencesKey("user_profile")
+        private val TOKEN_KEY = stringPreferencesKey("auth_token")
     }
 }

@@ -80,10 +80,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
 
-    // WorkManager
-    implementation(libs.workManager)
-    androidTestImplementation(libs.workManagerTest)
-
     implementation(libs.lifecycle)
 
     // UI: compose

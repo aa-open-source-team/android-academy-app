@@ -2,7 +2,6 @@ package io.github.androidacademyglobal.ui.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.github.aag.core.domain.OperationResult
 import io.github.aag.core.domain.models.UserProfile
 import io.github.aag.core.domain.repositories.ProfileRepository
 import kotlinx.coroutines.flow.SharingStarted
@@ -17,7 +16,7 @@ class ProfileViewModel(
 ) : ViewModel() {
     val state: StateFlow<ProfileScreenState> =
         profileRepository.getUserProfile()
-            .map(OperationResult<UserProfile>::asScreenState)
+            .map(UserProfile::asScreenState)
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(STOP_TIMEOUT),

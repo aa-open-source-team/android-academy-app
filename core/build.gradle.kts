@@ -47,6 +47,9 @@ kotlin {
             dependencies {
                 implementation(libs.coroutinesAndroid)
                 implementation(libs.ktor.okhttp)
+
+                // WorkManager
+                api(libs.workManager)
             }
         }
         val iosMain by creating {

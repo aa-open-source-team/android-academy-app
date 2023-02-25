@@ -15,4 +15,6 @@ interface AuthRepository {
     ): OperationResult<UserProfile>
 
     suspend fun enterGuestMode(): Boolean
+
+    suspend fun renewAuthToken(refreshToken: String): Boolean
 }

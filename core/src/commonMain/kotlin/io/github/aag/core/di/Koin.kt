@@ -77,7 +77,7 @@ internal fun networkModule() =
         single { RegisterRemoteDataSource(get()) }
         single<CourseRepository> { CourseRepositoryImpl(get()) }
         single<LessonsRepository> { LessonsRepositoryImpl(get()) }
-        single<AuthRepository> { AuthRepositoryImpl(get(), get(), get()) }
+        single<AuthRepository> { AuthRepositoryImpl(get(), get(), get(), get()) }
     }
 
 expect fun localStoreModule(): Module
