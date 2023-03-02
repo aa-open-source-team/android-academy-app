@@ -47,6 +47,7 @@ kotlin {
             dependencies {
                 implementation(libs.coroutinesAndroid)
                 implementation(libs.ktor.okhttp)
+                implementation(libs.lifecycle)
 
                 // WorkManager
                 api(libs.workManager)
@@ -68,4 +69,7 @@ android {
         targetSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
     }
     namespace = "io.github.aag.core"
+}
+dependencies {
+    implementation("androidx.lifecycle:lifecycle-process:2.5.1")
 }

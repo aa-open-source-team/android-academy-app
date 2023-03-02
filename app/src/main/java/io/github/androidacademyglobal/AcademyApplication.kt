@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.work.BackoffPolicy
 import androidx.work.Configuration
 import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.OneTimeWorkRequest
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.firebase.FirebaseApp
@@ -30,7 +29,7 @@ class AcademyApplication : Application(), Configuration.Provider {
         PeriodicWorkRequestBuilder<UpdateAuthTokenWorker>(2, TimeUnit.HOURS)
             .setBackoffCriteria(
                 BackoffPolicy.LINEAR,
-                OneTimeWorkRequest.MIN_BACKOFF_MILLIS,
+                10_000L,
                 TimeUnit.MILLISECONDS
             ).build()
 
@@ -55,7 +54,7 @@ class AcademyApplication : Application(), Configuration.Provider {
         WorkManager.getInstance(this)
             .enqueueUniquePeriodicWork(
                 UPDATE_TOKEN_TAG,
-                ExistingPeriodicWorkPolicy.REPLACE,
+                ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
                 updateAuthTokenRequest
             )
     }

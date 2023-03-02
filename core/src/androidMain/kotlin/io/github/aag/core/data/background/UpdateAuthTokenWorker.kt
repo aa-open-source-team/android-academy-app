@@ -1,14 +1,14 @@
 package io.github.aag.core.data.background
 
 import android.content.Context
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ProcessLifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import io.github.aag.core.domain.models.UserProfile
 import io.github.aag.core.domain.repositories.AuthRepository
 import io.github.aag.core.domain.repositories.ProfileRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class UpdateAuthTokenWorker(
@@ -17,22 +17,25 @@ class UpdateAuthTokenWorker(
     private val authRepository: AuthRepository,
     private val useProfileRepository: ProfileRepository
 ) : CoroutineWorker(appContext = appContext, params = workerParams) {
-    private var userProfile: UserProfile? = null
+    private var refreshToken: String? = null
 
     init {
-        CoroutineScope(Dispatchers.IO + Job())
+        val lifecycleOwner = ProcessLifecycleOwner.get()
+        lifecycleOwner
+            .lifecycleScope
             .launch {
-                useProfileRepository.getUserProfile()
-                    .collect { profile ->
-                        userProfile = profile
-                        doWork()
-                    }
+                lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    useProfileRepository.getUserProfile()
+                        .collect { profile ->
+                            refreshToken = profile.refreshToken
+                        }
+                }
             }
     }
 
     override suspend fun doWork(): Result =
-        userProfile?.let { profile ->
-            val isRenewTokenSuccess = authRepository.renewAuthToken(profile.refreshToken)
+        refreshToken?.let { token ->
+            val isRenewTokenSuccess = authRepository.renewAuthToken(token)
             if (isRenewTokenSuccess) {
                 Result.success()
             } else {
