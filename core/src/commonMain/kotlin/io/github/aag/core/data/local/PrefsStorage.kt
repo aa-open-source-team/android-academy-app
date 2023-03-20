@@ -7,4 +7,8 @@ interface PrefsStorage {
     suspend fun saveProfile(userProfile: UserProfile)
 
     fun getProfile(): Flow<UserProfile>
+
+    suspend fun saveAuthToken(token: String)
+
+    fun getAuthToken(): Flow<String>
 }
