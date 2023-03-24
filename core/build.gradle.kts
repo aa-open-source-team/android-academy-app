@@ -7,6 +7,10 @@ plugins {
 kotlin {
     android()
 
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -48,6 +52,7 @@ kotlin {
                 implementation(libs.coroutinesAndroid)
                 implementation(libs.ktor.okhttp)
                 implementation(libs.lifecycle)
+                implementation(libs.lifecycleProcess)
 
                 // WorkManager
                 api(libs.workManager)
@@ -69,7 +74,4 @@ android {
         targetSdk = io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
     }
     namespace = "io.github.aag.core"
-}
-dependencies {
-    implementation("androidx.lifecycle:lifecycle-process:2.5.1")
 }

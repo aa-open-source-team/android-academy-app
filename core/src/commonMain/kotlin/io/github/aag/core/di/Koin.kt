@@ -47,7 +47,7 @@ fun commonModule() = module {
 
 internal fun networkModule() =
     module {
-        singleOf<HttpClient> {
+        single {
             HttpClient {
                 install(Logging) {
                     logger = object : Logger {
