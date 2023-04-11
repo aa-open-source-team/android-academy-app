@@ -1,14 +1,14 @@
-import Config.androidBuildTools
-import Config.androidCompileSdk
-import Config.androidMinSdk
-import Config.androidTargetSdk
+import io.github.androidacademyglobal.config.ApplicationConfig.androidBuildTools
+import io.github.androidacademyglobal.config.ApplicationConfig.androidCompileSdk
+import io.github.androidacademyglobal.config.ApplicationConfig.androidMinSdk
+import io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
 
 plugins {
-    id(Plugins.appPlugin)
-    kotlin(Plugins.androidPlugin)
-    kotlin(Plugins.serializationPlugin)
-    kotlin(Plugins.kapt)
-    id(Plugins.hiltPlugin)
+    alias(libs.plugins.appPlugin)
+    alias(libs.plugins.androidPlugin)
+    alias(libs.plugins.kaptPlugin)
+    alias(libs.plugins.crashlyticsPlugin)
+    alias(libs.plugins.gservicesPlugin)
 }
 
 android {
@@ -16,7 +16,7 @@ android {
     buildToolsVersion = androidBuildTools
 
     defaultConfig {
-        applicationId = "io.github.android_academy_global"
+        applicationId = "io.github.androidacademyglobal"
         minSdk = androidMinSdk
         targetSdk = androidTargetSdk
         versionCode = 1
@@ -27,7 +27,6 @@ android {
             useSupportLibrary = true
         }
     }
-
 
     buildTypes {
         getByName("debug") {
@@ -45,7 +44,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
+        kotlinCompilerVersion = libs.versions.compose.get()
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -58,55 +58,44 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    namespace = "io.github.androidacademyglobal"
 }
 
 dependencies {
+    implementation(project(":core"))
+
     // auth
-    implementation(Libs.playServicesAuth)
+    implementation(libs.playServicesAuth)
+
+    // firebase crashlytics
+    implementation(platform(libs.firebase))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.analytics)
 
     // Core
-    implementation(Libs.androidCore)
-
-    // Serialization
-    implementation(Libs.serialization)
+    implementation(libs.androidCore)
 
     // DI
-    implementation(Libs.dagger)
-    kapt(Libs.daggerCompiler)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
 
-    implementation(Libs.hilt)
-    kapt(Libs.hiltCompiler)
-    implementation(Libs.hiltNavigationCompose)
-
-    // Concurrency
-
-    implementation(Libs.coroutines)
-    implementation(Libs.coroutinesAndroid)
-
-    // Logging
-    implementation(Libs.timber)
-
-    // SharedPreference
-    implementation(Libs.dataStore)
-
-    // WorkManager
-    implementation(Libs.workManager)
-    androidTestImplementation(Libs.workManagerTest)
-
-    implementation(Libs.lifecycle)
+    implementation(libs.lifecycle)
 
     // UI: compose
-    implementation(Libs.activityCompose)
-    implementation(Libs.vmCompose)
-    implementation(Libs.composeCompiler)
-    implementation(Libs.composeFoundation)
-    implementation(Libs.composeMaterial)
-    implementation(Libs.composeUI)
-    implementation(Libs.composeTooling)
-    implementation(Libs.glideComposeVersion)
+    implementation(libs.activityCompose)
+    implementation(libs.vmCompose)
+    implementation(libs.lifecycleCompose)
+    implementation(libs.composeCompiler)
+    implementation(libs.composeFoundation)
+    implementation(libs.composeMaterial)
+    implementation(libs.composeUI)
+    implementation(libs.composeTooling)
+    implementation(libs.glideComposeVersion)
+    implementation(libs.composeMaterial3)
 
     // Testing
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.junitExt)
-    androidTestImplementation(Libs.kaspresso)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junitExt)
+    androidTestImplementation(libs.kaspresso)
 }

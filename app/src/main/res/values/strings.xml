@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">AndroidAcademyApp</string>
+    <string name="app_name" translatable="false">AndroidAcademyApp</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="display_name">Display name</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="telegram" translatable="false">Telegram</string>
 </resources>

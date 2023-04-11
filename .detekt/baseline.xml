@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues />
+  <CurrentIssues>
+    <ID>ForbiddenPublicDataClass:ProfileScreenState.kt$ProfileScreenState$ProfileScreenState</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:AcademyApplication.kt$AcademyApplication : Application</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:AppActivity.kt$AppActivity : ComponentActivity</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:BaselineHeightModifier.kt$fun
+      Modifier.baselineHeight(heightFromBaseline: Dp): Modifier
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ExampleInstrumentedTest.kt$ExampleInstrumentedTest</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ExampleUnitTest.kt$ExampleUnitTest</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfilePreviews.kt$@Preview(widthDp = 340, name = "340
+      width - Me - Dark") @Composable fun ProfilePreview340MeDark()
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfilePreviews.kt$@Preview(widthDp = 340, name = "340
+      width - Me") @Composable fun ProfilePreview340()
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfilePreviews.kt$@Preview(widthDp = 480, name = "480
+      width - Me - Dark") @Composable fun ProfilePreview480MeDark()
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfilePreviews.kt$@Preview(widthDp = 480, name = "480
+      width - Me") @Composable fun ProfilePreview480Me()
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfilePreviews.kt$@Preview(widthDp = 480, name = "480
+      width - Other - Dark") @Composable fun ProfilePreview480OtherDark()
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfilePreviews.kt$@Preview(widthDp = 480, name = "480
+      width - Other") @Composable fun ProfilePreview480Other()
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfileScreen.kt$@Composable fun ProfileProperty(label:
+      String, value: String, isLink: Boolean = false)
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfileScreen.kt$@OptIn(ExperimentalMaterial3Api::class,
+      ExperimentalLifecycleComposeApi::class) @Composable fun ProfileScreen( viewModel:
+      ProfileViewModel = getViewModel() )
+    </ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfileScreenState.kt$ProfileScreenState</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:ProfileViewModel.kt$ProfileViewModel : ViewModel</ID>
+    <ID>LibraryEntitiesShouldNotBePublic:Theme.kt$@Composable fun AndroidAcademyAppTheme( darkTheme:
+      Boolean = isSystemInDarkTheme(), content: @Composable () -&gt; Unit )
+    </ID>
+  </CurrentIssues>
+</SmellBaseline>
