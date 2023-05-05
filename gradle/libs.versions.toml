@@ -6,8 +6,7 @@ koin = "3.3.3"
 koinCompose = "3.4.2"
 
 # Compose
-activityCompose = "1.7.1"
-compose = "1.4.2"
+composeBom = "2023.05.00"
 composeCompiler = "1.4.7"
 
 # Plugins
@@ -15,7 +14,7 @@ versionUpdater = "0.42.0"
 detekt = "1.22.0"
 androidGradlePlugin = "8.2.0-alpha01"
 toolchainsResolver = "0.4.0"
-ksp = "1.8.10-1.0.9"
+ksp = "1.8.21-1.0.11"
 
 # Android libraries
 lifecycle = "2.6.1"
@@ -42,12 +41,13 @@ kaspresso = "1.5.1"
 [libraries]
 # Android libs
 androidCore = { module = "androidx.core:core-ktx", version.ref = "androidCore" }
-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+activityCompose = { module = "androidx.activity:activity-compose" }
 composeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "composeCompiler" }
-composeUI = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-composeMaterial = { module = "androidx.compose.material:material", version.ref = "compose" }
-composeFoundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-composeTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+composeUI = { module = "androidx.compose.ui:ui" }
+composeMaterial = { module = "androidx.compose.material:material" }
+composeFoundation = { module = "androidx.compose.foundation:foundation" }
+composeTooling = { module = "androidx.compose.ui:ui-tooling" }
 vmCompose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 
 dataStorePrefs = { module = "androidx.datastore:datastore-preferences-core", version.ref = "dataStore" }
@@ -61,7 +61,7 @@ workManager = { module = "androidx.work:work-runtime-ktx", version.ref = "workMa
 
 coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
-composeMaterial3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+composeMaterial3 = { module = "androidx.compose.material3:material3" }
 
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }

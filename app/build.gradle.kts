@@ -82,6 +82,8 @@ dependencies {
     implementation(libs.lifecycle)
 
     // UI: compose
+    val composeBom = platform(libs.compose.bom)
+    implementation(composeBom)
     implementation(libs.activityCompose)
     implementation(libs.vmCompose)
     implementation(libs.lifecycleCompose)

@@ -2,7 +2,7 @@ package io.github.androidacademyglobal.config
 
 object ApplicationConfig {
     // Android config
-    const val androidBuildTools = "33.0.1"
+    const val androidBuildTools = "34.0.0-rc3"
     const val androidMinSdk = 21
     const val androidTargetSdk = 33
     const val androidCompileSdk = 33
