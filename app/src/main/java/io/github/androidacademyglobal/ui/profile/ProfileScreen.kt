@@ -32,7 +32,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.androidacademyglobal.R
 import io.github.androidacademyglobal.ui.components.baselineHeight
@@ -40,14 +39,15 @@ import io.github.androidacademyglobal.ui.theme.AppConstants
 import io.github.androidacademyglobal.ui.theme.DimensionConstants
 import org.koin.androidx.compose.getViewModel
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(
     viewModel: ProfileViewModel = getViewModel()
 ) {
     val userData by viewModel.state.collectAsStateWithLifecycle()
     val topAppBarState = rememberTopAppBarState()
-    val scrollBehavior = remember { TopAppBarDefaults.pinnedScrollBehavior(topAppBarState) }
+    val pinnedScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(topAppBarState)
+    val scrollBehavior = remember { pinnedScrollBehavior }
 
     Column(
         modifier = Modifier

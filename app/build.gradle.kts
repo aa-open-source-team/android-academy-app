@@ -6,7 +6,7 @@ import io.github.androidacademyglobal.config.ApplicationConfig.androidTargetSdk
 plugins {
     alias(libs.plugins.appPlugin)
     alias(libs.plugins.androidPlugin)
-    alias(libs.plugins.kaptPlugin)
+    alias(libs.plugins.kspPlugin)
     alias(libs.plugins.crashlyticsPlugin)
     alias(libs.plugins.gservicesPlugin)
 }
@@ -36,22 +36,15 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             isDebuggable = false
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.get()
-        kotlinCompilerVersion = libs.versions.compose.get()
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     packagingOptions {
         resources {
@@ -59,6 +52,12 @@ android {
         }
     }
     namespace = "io.github.androidacademyglobal"
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 dependencies {
@@ -83,6 +82,7 @@ dependencies {
     implementation(libs.lifecycle)
 
     // UI: compose
+    implementation(platform(libs.compose.bom))
     implementation(libs.activityCompose)
     implementation(libs.vmCompose)
     implementation(libs.lifecycleCompose)
@@ -91,7 +91,6 @@ dependencies {
     implementation(libs.composeMaterial)
     implementation(libs.composeUI)
     implementation(libs.composeTooling)
-    implementation(libs.glideComposeVersion)
     implementation(libs.composeMaterial3)
 
     // Testing
